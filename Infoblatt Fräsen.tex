@@ -1,0 +1,209 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COPYRIGHT: (C) 2012-2015 FAU FabLab and others
+% Bearbeitungen ab 2015-02-20 fallen unter CC-BY-SA 3.0
+% Sobald alle Mitautoren zugestimmt haben, steht die komplette Datei unter CC-BY-SA 3.0. Bis dahin ist der Lizenzstatus aller alten Bestandteile ungeklärt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\basedir}{../..}
+\documentclass{../../vorlagen/fablab-aushang}
+% \usepackage{fancybox} %ovale Boxen für Knöpfe - nicht mehr benötigt
+\usepackage{amssymb} % Symbole für Knöpfe
+\usepackage{subfigure,caption}
+
+\usepackage{eurosym}
+\usepackage{tabularx} % Tabellen mit bestimmtem Breitenverhältnis der Spalten
+\usepackage{wrapfig} % Textumlauf um Bilder
+
+\renewcommand{\texteuro}{\euro}
+
+\linespread{1.2}
+
+\date{2014}
+\author{Michael Jäger}
+\fancyfoot[C]{zerspanung@fablab.fau.de}
+\title{Leitfaden zum Fräsen im FAU FabLab}
+
+\tikzstyle{knopf} = [anchor=base, draw=black, fill=gray!10, rectangle, rounded corners, inner sep=2pt, outer sep = 3pt]
+\usetikzlibrary{calc}
+
+\newcommand{\knopfStyled}[2]{
+    \begin{tikzpicture}[baseline={(box.base)}]
+    \node [#1] (box) { 
+        \fontsize{9pt}{9pt}\selectfont \textbf{#2}\strut
+    };
+    \end{tikzpicture}
+}
+
+\newcommand{\knopf}[1]{\knopfStyled{knopf}{#1}}
+\newcommand{\cncStart}{\knopf{Start}}
+
+%\tikzstyle{todo} = [knopf, draw=white, fill=yellow]
+%\newcommand{\todo}[1]{\knopfStyled{todo}{#1}}
+\newcommand{\todo}[1]{\colorbox{yellow}{{#1}}}
+
+%\fancyfoot[C]{\todo{UNFERTIG}}
+%\fancyhead[C]{\todo{UNFERTIG}}
+\usetikzlibrary{shadows}
+
+\begin{document}
+\colorlet{blockhintergrund}{blue!50!gray}
+\tikzstyle{leer} = []
+\tikzstyle{ablaufGross} = [rectangle, draw, thick, top color=blockhintergrund!10,bottom color=blockhintergrund!30, draw=blockhintergrund!70!black,
+    text width=12.25em, text centered, rounded corners, minimum height=4em, drop shadow]
+\tikzstyle{ablaufMittel} = [rectangle, draw, thick, top color=blockhintergrund!10,bottom color=blockhintergrund!30, draw=blockhintergrund!70!black,
+    text width=10em, text centered, rounded corners, minimum height=5.5em, drop shadow]
+\tikzstyle{ablaufKlein} = [rectangle, draw, thick, top color=blockhintergrund!10,bottom color=blockhintergrund!30, draw=blockhintergrund!70!black,
+    text width=5.375em, text centered, rounded corners, minimum height=2.5em, drop shadow]
+\tikzstyle{pfeilAblauf} = [draw,->, thick, every node/.style={text left, text width=38em}]
+%\begin{figure}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.8, node distance = 6cm, auto]
+\newcommand{\ueb}[1]{\textbf{#1}\\}
+ \node[ablaufGross] (0) 
+	{\ueb{Du willst fräsen lernen, hast aber kein Projekt}};
+	
+%nicht über die Kommentare mitten im Text wundern, das muss so wegen ä ü ö \n UTF-8 Zeichenkodierung im Mail Betreff / Body
+ \node[ablaufGross, below of = 0, node distance=2.925cm] (3) 
+	{\ueb{Melde dich unter} 
+		\href{mailto:zerspanung@fablab.fau.de?subject=Ich will fr%C3%A4sen lernen, habe aber kein Projekt
+		&body=Hallo liebes FabLab Team, 
+		%0A%0A
+		ich habe Interesse daran Fr%C3%A4sen zu lernen und m%c3%b6chte mich bitte f%c3%bcr den n%C3%A4chsten freien Termin eintragen.%0A
+		%0A
+		Ich habe auf Eurer Website nachgeschaut und mir folgenden noch freien Termin herausgesucht,%0A
+		am \_\_.\_\_.\_\_\_\_ um \_\_:\_\_ Uhr%0A
+		%0A
+		%0A
+		Mit freundlichen Gr%c3%bc%c3%9fen,
+		}
+		{zerspanung@fablab.fau.de} 
+		\\ Wir geben dir bescheid sobald ein Projekt zur Verfügung steht.};
+	
+	
+	
+ \node[ablaufGross, right of = 0] (1) 
+	{\ueb{Du willst fräsen lernen und hast ein Projekt}};
+
+ \node[ablaufGross, below of = 1, node distance=2.25cm, ] (4) 
+	{\ueb{Du hast selbst das Material?}};
+	
+ \node[ablaufKlein, below of = 4, left = 4, node distance=2cm] (5) 
+	{\ueb{Ja}};
+	
+ \node[ablaufKlein, below of = 4, right = 4, node distance=2cm] (6) 
+	{\ueb{Nein}};
+	
+ \node[ablaufGross, below of = 5, left = 5 - 1cm, node distance=2cm + 1em, minimum height=5.5em] (11) 
+	{\ueb{Dein Material ist 50mm größer als das Werkstück?}};
+	
+ \node[ablaufKlein, below of = 11, left = 11 - 0.25cm, node distance=2cm + 1em] (13) 
+	{\ueb{Ja}};
+	
+ \node[ablaufKlein, below of = 11, right = 11 - 0.25cm, node distance=2cm + 1em] (14) 
+	{\ueb{Nein}};
+	
+ \node[ablaufGross, below of = 13, node distance=2.5cm]  (7) 
+	{\ueb{Melde dich unter} 
+		\href{mailto:zerspanung@fablab.fau.de?subject=Ich will fr%C3%A4sen lernen, habe ein Projekt und Material&body=Hallo liebes FabLab Team,%0A
+		%0A
+		ich habe ein Interesse daran Fr%C3%A4sen zu lernen und habe ein eigenes Projekt. Das Material bringe ich selbst mit.%0A
+	  Ich habe darauf geachtet, dass mein Halbzeug mindestens 50 mm l%C3%A4nger und breiter ist als mein Werkst%c3%bcck.%0A
+		%0A
+		Informationen zu meinem Projekt:%0A
+		Werkstoff: \_\_\_\_\_\_\_\_\_\_%0A
+		Abma%c3%9fe des Werkst%c3%bccks: \_\_\_ x \_\_\_ x \_\_\_ mm oder %c3%98 \_\_\_ x \_\_\_ mm%0A
+		Abma%c3%9fe des Rohteils: \_\_\_ x \_\_\_ x \_\_\_ mm oder %c3%98 \_\_\_ x \_\_\_ mm%0A
+		Der kleinste Innenradius meines Werkst%c3%bccks ist \_\_\_ mm%0A
+		Die kleinste Nut meines Werkst%c3%bccks ist \_\_\_ mm breit und \_\_\_ mm tief%0A
+		%0A
+		Im Anhang findet Ihr meine Zeichnung(en). Bitte schreibt mir ob wir dies so fertigen k%c3%b6nnen oder ob etwas ge%C3%A4ndert werden muss.%0A
+		%0A
+		Ich habe auf Eurer Website nachgeschaut und mir folgenden, noch freien, Termin herausgesucht,%0A
+		am \_\_.\_\_.\_\_\_\_ um \_\_:\_\_ Uhr%0A
+		%0A
+		%0A
+		Mit freundlichen Gr%c3%bc%c3%9fen,
+		}
+		{zerspanung@fablab.fau.de} 
+		\\ Wir tragen dich für den nächsten freien Termin ein.};
+		
+		
+\node[ablaufGross, below of = 6, right = 6 - 1cm, node distance=2cm + 1em, minimum height=7.5em] (8) 
+	{\ueb{Melde dich unter} 
+		\href{mailto:zerspanung@fablab.fau.de?subject=Ich will fr%C3%A4sen lernen, habe ein Projekt aber kein Material&body=Hallo liebes FabLab Team,%0A
+		%0A
+		ich habe ein Interesse daran Fr%C3%A4sen zu lernen und habe ein eigenes Projekt.%0A
+		Ich habe kein oder nur zu kleines Material, bitte besorgt f%c3%bcr mich das entsprechende Halbzeug.%0A
+		Mir ist bewusst, dass Ihr dies nur nach Vorkasse tut, daher werde ich am \_\_.\_\_.\_\_\_\_ um \_\_:\_\_ Uhr vorbeikommen und es bezahlen.%0A
+		%0A
+		Informationen zu meinem Projekt:%0A
+		Werkstoff: \_\_\_\_\_\_\_\_\_\_%0A
+		Abma%c3%9fe des Werkst%c3%bccks: \_\_\_ x \_\_\_ x \_\_\_ mm oder %c3%98 \_\_\_ x \_\_\_ mm%0A
+		Der kleinste Innenradius meines Werkst%c3%bccks ist \_\_\_ mm%0A
+		Die kleinste Nut meines Werkst%c3%bccks ist \_\_\_ mm breit und \_\_\_ mm tief%0A
+		%0A
+		Im Anhang findet Ihr meine Zeichnung(en). Bitte schreibt mir ob wir dies so fertigen k%c3%b6nnen oder ob etwas ge%C3%A4ndert werden muss.%0A
+		%0A
+		Ich habe auf Eurer Website nachgeschaut und mir folgenden, noch freien, Termin herausgesucht,%0A
+		am \_\_.\_\_.\_\_\_\_ um \_\_:\_\_ Uhr%0A
+		%0A
+		%0A
+		Mit freundlichen Gr%c3%bc%c3%9fen,
+		}
+		{zerspanung@fablab.fau.de} 
+		\\ Wir besorgen Material und tragen dich für den nächsten freien Termin ein.};
+			
+			
+			
+ \node[ablaufGross, right of = 1] (2) 
+	{\ueb{Du willst etwas gefräst haben (Auftragsfertigung)}};
+	
+	%nicht über die Kommentare mitten im Text wundern, das muss so wegen ä ü ö \n UTF-8 Zeichenkodierung im Mail Betreff / Body
+ \node[ablaufGross, below of = 2, node distance=2.925cm] (9) 
+	{\ueb{Melde dich unter} 
+		\href{mailto:zerspanung@fablab.fau.de?subject=Ich will etwas gefr%C3%A4st haben (Auftragsfertigung)&body=Hallo liebes FabLab Team,%0A
+		%0A
+		ich will euch gerne mit einer Auftragsfertigung betrauen.%0A
+		Mir ist bewusst, dass hierf%c3%bcr die Vollkosten abgerechnet werden und Ihr dies nur nach Vorkasse tut, bitte nennt mir einen groben Preis f%c3%bcr mein Werkst%c3%bcck.%0A
+		Wenn ich damit einverstanden bin, werde ich euch bescheid geben und vorbeikommen um den vorraussichtlichen Betrag zu bezahlen.%0A
+		%0A
+		Informationen zu meinem Projekt:%0A
+		Werkstoff: \_\_\_\_\_\_\_\_\_\_%0A
+		Abma%c3%9fe des Werkst%c3%bccks: \_\_\_ x \_\_\_ x \_\_\_ mm oder %c3%98 \_\_\_ x \_\_\_ mm%0A
+		Der kleinste Innenradius meines Werkst%c3%bccks ist \_\_\_ mm%0A
+		Die kleinste Nut meines Werkst%c3%bccks ist \_\_\_ mm breit und \_\_\_ mm tief%0A
+		%0A
+		Im Anhang findet Ihr meine Zeichnung(en). Bitte schreibt mir ob Ihr dies so fertigen k%c3%b6nnt oder ob etwas ge%C3%A4ndert werden muss.%0A
+		Ist es m%c3%b6glich das Teil vor dem \_\_.\_\_.\_\_\_\_ zu fr%C3%A4sen?
+		%0A
+		%0A
+		Mit freundlichen Gr%c3%bc%c3%9fen,
+		}
+		{zerspanung@fablab.fau.de} 
+		\\ Wir geben dir bescheid was es ca. kostet und wie lange es dauert.};
+	
+ 
+ \path[pfeilAblauf] (0) -- (3);
+ \path[pfeilAblauf] (2) -- (9);
+ \path[pfeilAblauf] (1) -- (4);
+ \path[pfeilAblauf] (4.south -| 5.north) -- (5.north);
+ \path[pfeilAblauf] (4.south -| 6.north) -- (6.north);
+ \path[pfeilAblauf] (5.west) -| (11.north);
+ \path[pfeilAblauf] (11.south -| 13.north) -- (13.north);
+ \path[pfeilAblauf] (11.south -| 14.north) -- (14.north);
+ \path[pfeilAblauf] (13) -- (7);
+ \path[pfeilAblauf] (6.east) -| (8.north);
+ \path[pfeilAblauf] (14.east) -| (8.south);
+ %\path[pfeilAblauf] (6.south) -- (7.north -| 6.south);
+ %\path[pfeilAblauf][-] (14.east) -- (6.south |- 14.east);
+
+\end{tikzpicture}
+% \vspace{-20em}
+% 
+%\pagebreak
+%\end{figure}
+
+\end{document}
