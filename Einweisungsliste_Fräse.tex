@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COPYRIGHT: (C) 2012-2015 FAU FabLab and others
+% CC-BY-SA 3.0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\basedir}{./fablab-document}
+\documentclass{\basedir/fablab-document}
+\usepackage{fancybox} %ovale Boxen für Knöpfe
+\usepackage{amssymb} % Symbole für Knöpfe
+\usepackage{subfigure,caption}
+\usepackage{eurosym}
+\usepackage{tabularx} % Tabellen mit bestimmtem Breitenverhältnis der Spalten
+\usepackage{wrapfig} % Textumlauf um Bilder
+\renewcommand{\texteuro}{\euro}
+\usepackage{ifthen}
+\usepackage{xspace}
+\def\tabularnewcol{&\xspace} % hässlicher Workaround von http://tex.stackexchange.com/questions/7590/how-to-programmatically-make-tabular-rows-using-whiledo
+
+
+\usepackage{tabularx} % Tabelle mit teilweise gleich großen Spalten
+\title{Einweisungsliste Fräse}
+\fancyfoot[C]{github.com/fau-fablab/fraese-einweisung}
+\fancyfoot[L]{Einweisungsliste Nr. \underline{\hspace{3em}}}
+
+\begin{document}
+%\maketitle
+
+Ich bestätige mit meiner Unterschrift verbindlich, dass
+
+\begin{itemize}
+\item ich nur bestimmte Tätigkeiten selbstständig machen darf und andere nur unter direkter Aufsicht.\\
+Stufe 1: Werkstückwechsel/Putzen, 2: Handbetrieb und Vorbereitung, 3: Alles, auch Start/Resync. \\
+\textbf{Dies ist am Anfang der Einweisung genauer beschrieben.}
+\item ich die Regeln und Hinweise (Kapitel 1 der Einweisung), bzw. ab Stufe 2 die komplette Einweisung, gelesen und verstanden habe.
+\item ab Stufe 2: Ich die Zerspanungs-Mailingliste abonniert habe, um wichtige Neuerungen zu erfahren.
+\item die Möglichkeit für Fragen und Diskussion gegeben war
+\item die Möglichkeit, eine Kopie der Anleitung zu erhalten, gegeben war
+\end{itemize}
+
+Die Einweisung verfällt nach 1 Jahr, wenn sie nicht vorher erneuert wurde.
+
+\newcommand{\quer}[1]{\rotatebox{90}{\textbf{#1}\hspace{1em}}}
+% einfach kopiert von Einweisungsliste Lasercutter
+\newcounter{i}
+\setcounter{i}{1}
+\newcommand{\leerezeile}{\hspace{2em} \tabularnewcol \hspace{3em} \tabularnewcol \vbox{\vspace{3em}} \tabularnewcol  \tabularnewcol  \tabularnewcol  \tabularnewline \hline}
+%
+\begin{tabularx}{\textwidth}{|l|l|X|l|X|X|X|X|}
+  \hline
+  \textbf{Nr.} & \textbf{Datum} & \textbf{Name, Unterschrift} & \textbf{Stufe 1/2/3} & \textbf{Werkstück} \mbox{(\enquote{Lehrlingsstück})}& \textbf{Einweisender}, \mbox{\textbf{Unterschrift}} \\ \hline
+  \whiledo{\value{i}<9}%
+  {%
+    \stepcounter{i} \leerezeile
+  }%
+  \leerezeile % doofer Workaround, eigentlich sollte das auch in der Forschleife gehen! Ohne dies wird die Spaltenbegrenzung von Spalte 1 zu weit gezeichnet.
+\end{tabularx}
+
+\end{document}

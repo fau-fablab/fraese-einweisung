@@ -3,7 +3,10 @@ Fräsen Einweisung
 
 Einweisung des [FAU FabLab](https://fablab.fau.de) in die [CNC Fräse](https://fablab.fau.de/tool/cnc-fraese).
 
-Die neueste Version der Einweisung aus [github](https://github.com/fau-fablab/fraese-einweisung) ist als PDF unter https://user.fablab.fau.de/~buildserver/fraese-einweisung/Einweisung_Fräse.pdf abrufbar.
+Die neueste Version der Einweisung aus [github](https://github.com/fau-fablab/fraese-einweisung) ist als PDF abrufbar:
+
+- [Einweisung](https://user.fablab.fau.de/~buildserver/fraese-einweisung/Einweisung_Fräse.pdf)
+- [Einweisungsliste](https://user.fablab.fau.de/~buildserver/fraese-einweisung/Einweisungsliste_Fräse.pdf)
 
 auschecken
 ----------
