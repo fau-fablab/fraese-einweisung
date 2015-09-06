@@ -85,32 +85,30 @@ Absaugvorrichtung \todo{(sobald es sie gibt)}, Längenmessung, Spindel vorheizen
 \subsection{Handhabung}
 \begin{itemize}
  \item Die Fräse ist ein kompliziertes und teures Gerät; eine Anleitung dazu kann nie vollständig sein. Nachdenken, Sorgfalt und Vorsicht sind nötig, damit weder Menschen noch die Maschine zu Schaden kommen.
- \item Mache dich mit den Schutzeinrichtungen (Türschalter, Notaus, ESC / Pause am PC, Begrenzungen in der Steuerung) und ihren Einschränkungen vertraut. Dabei sollte dir auch klar werden, wieso und wann
+ \item Mache dich mit den Schutzeinrichtungen und ihren Einschränkungen vertraut:
 \begin{itemize}
- \item es nach dem Not-Aus oder Türe öffnen noch etwas dauert, bis ein sicherer Zustand erreicht ist,
-       % -> Nachlauf der Spindel. Bei Handbetrieb kann man auch den Zustand Spindel an + Tür auf erreichen!
- \item die ESC- und erst recht die F4-Taste am PC kein Ersatz für den Not-Aus ist
-       % -> Wenn der PC abstürzt, geht garnichts davon. F4 nur im laufenden Programm, nicht beispielsweise wenn die Werkzeuglängenmessung Amok läuft
- \item die Steuerung nicht immer verhindern kann, dass der Fräser in den Nutentisch rammt
-       % -> Sie kennt die Werkzeuglänge nicht
+ \item Not-Aus vorne an der Fräse: Funktioniert immer, die Spindel läuft aber noch nach.
+ \item Türen mit Schutzschalter: Beim Öffnen der Türen wird das Programm angehalten, die Spindel läuft nach. Manuelles Verfahren, Spindel anschalten usw. ist aber weiterhin möglich.
+ \item Begrenzungen in der Steuerung: Wenn die Werkzeuglänge korrekt gemessen wurde, versucht die Steuerung zu verhindern dass man den Fräser in den Nutentisch rammt.
+ \item Weil der PC sich aufhängen kann, sind die PC-Tasten sind kein Ersatz für den Not-Aus.
 \end{itemize}
 
  \item Die beschriebenen Abläufe müssen unbedingt beachtet werden. Bei Unklarheiten nachfragen!
  \item Beim Hantieren in der Fräse:
 	\begin{itemize}
-	\item Schmiermittel und Späne sind nicht gut für die Haut. Einweghandschuhe sind in der Werkbank.
+	\item Schmiermittel und Späne sind nicht gut für die Haut. Einweghandschuhe sind in der Werkbank. Späne auf der Haut nicht wegreiben, sondern abwaschen.
 	\item Beim Ausblasen für Augenschutz (Späne) und ggf.\  Gehörschutz sorgen. Ausblasen verteilt oft nur den Dreck, deshalb lieber kehren oder saugen. Es besteht die Gefahr, dass Dreck in abgedichtete Bereiche, z.\,B.\  unten bei der Spindel, gepresst wird.
 	\item Während jemand an der offenen Fräse ist, bedient kein anderer den PC. Zum manuellen Verfahren beim Antasten die Tastatur mitnehmen und es selber machen!
 	\item Spindel und Nebelkühlung auslassen, solange die Maschine offen ist!
 	\item Ausnahme Kühlung: beim Justieren der Kühlmittelstrahlen auf den Fräser darf die Kühlung natürlich an sein.
 	\end{itemize}
- \item Materialien, die leitfähigen oder abrasiven Staub erzeugen, sind vorerst nicht erlaubt (unter anderem Graphit, Carbon, Stein, GFK, Platinen)
- \item Die Deckenlüftung muss an sein, solange die Fräse in Benutzung ist.
- \item Bei Bruch eines Fräsers muss der in der Tabelle stehende Kostenanteil gezahlt werden, unabhängig von einem Verschulden des Benutzers. (Irgendwo muss das Geld für den neuen Fräser ja herkommen.)
+ \item Materialien, die leitfähigen oder abrasiven Staub erzeugen, sind vorerst nicht erlaubt (unter anderem Graphit, Carbon, Stein, GFK, Platinen). Für Holz ist die Absaugung zu verwenden, an die der für Holzstaub zugelassene Festool Staubsauger angeschlossen werden muss.
+ \item Die Deckenlüftung muss an sein, solange die Fräse in Benutzung ist, auch beim Warmlaufen.
+ \item Bei Bruch eines Fräsers muss er gezahlt werden, unabhängig von einem Verschulden des Benutzers. (Irgendwo muss das Geld für den neuen Fräser ja herkommen.)
 \end{itemize}
 \subsection{Ordnung} \label{ordnung}
 \begin{itemize}
-\item Bei den Spänen auf Mülltrennung achten: Normalerweise sind Aluspäne in der Wanne. Wenn Eisen gefräst wird, Wanne davor und danach in den passenden Eimer ausleeren.
+\item Bei den Spänen auf Mülltrennung achten: Normalerweise sind Aluspäne in der Wanne. Wenn sonstiges Material gefräst wird, Wanne davor und danach in den passenden Eimer ausleeren.
 \item Nach Öffnen der Türen ist zu kontrollieren, ob Späne auf den Boden neben der Rutschmatte gefallen sind. Wenn ja, \emph{sofort} wegsaugen.
  \item Auch die Türkanten absaugen (verhindert von Anfang an, dass Späne auf den Boden fallen)
  \item Nach getaner Arbeit Fräse wieder schön sauber machen:
@@ -133,11 +131,12 @@ Absaugvorrichtung \todo{(sobald es sie gibt)}, Längenmessung, Spindel vorheizen
 \section{Checkliste Auftragsstart}
 \subsection{CAM}
 \begin{enumerate}
- \item Herausfallende Stücke? Stege setzen.\\Richtwert: bei Alublech alle 50-100mm ein 2mm dicker und 2mm langer rechteckiger (nicht angeschrägter) Steg. Je nach Fräserdicke und Material muss das angepasst werden.\\
+ \item Herausfallende Stücke? Stege setzen, auch für kleinere Teile möglichst 3-4 Stück.\\Richtwert: Bei Alublech alle 50-100mm ein 2mm dicker und 2mm langer rechteckiger (nicht angeschrägter) Steg. Bei Weichholz 3mm lang, 4mm dick. Je nach Fräserdicke und Material muss das angepasst werden.\\
 VCarve: Wenn tiefer gefräst wird als das Material, muss die Stegdicke entsprechend erhöht werden, denn diese bezieht sich immer auf den untersten Punkt der Fräsung. Vorsicht auch bei unebenem Material.
  \item VCarve: Starttiefe=0, wenn nicht vorher mindestens so tief ausgefräst (Reihenfolge!)\\
 Für besondere Vorsicht (unebenes Material) kann Starttiefe auch negativ sein.
- \item VCarve: Frästiefe $<$ nutzbare Schneidenlänge (bzw. Freistellungslänge) des Fräsers? (siehe Fräsertabelle oder Datenblatt)\\ (Bei Schaum u.\,ä.\  kann ein gleich dicker Schaft auch ausreichend sein) \\
+ \item Erlaubte Frästiefe beachten: Ein Fräser darf meist nicht so tief eintauchen wie er lang ist, weil der Schaft etwas größer ist als die Schneiden. Die erlaubte Tiefe steht im Artikelnamen in der Preisliste oder im Datenblatt (nutzbare Schneidenlänge bzw. Freistellungslänge).
+Bei Schaum u.\,ä.\  kann ein gleich dicker Schaft auch ausreichend sein) \\
  Wird tiefer als die Schneidenlänge gefräst, ist beim Nutfräsen besonders auf die Spanabfuhr zu achten. \\
  Sollten sich Späne in der Nut sammeln, Job pausieren und mit Druckluft ausblasen.
  \item Ist der Fräser stirnseitig schneidend? (Fräsertabelle oder Datenblatt) Wenn nein, darf er nicht bohren oder senkrecht eintauchen.\\
@@ -146,8 +145,13 @@ Diese Fräser sind oft, aber nicht immer, im VCarve extra gekennzeichnet.\\
 Dann möglichst einen anderen Fräser verwenden oder im VCarve: Schrägeintauchen/Anfahrrampe aktivieren, außerdem die Stege rampenförmig und nicht rechteckig einstellen (Eintauchrampe gilt nicht für Stege!)  \todo{prüfen ob das wirklich ausreicht}\\
 Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verfährt.
  \item unabhängig davon ist ein schräges Eintauchen fräserschonender (VCarve: Anfahrrampe schräg, Länge der Anfahrrampe ungefähr gleich der Eintauchtiefe wählen.)
- \item VCarve Bohren: wenn Fräser zum Bohren verwendet werden oder relativ tief gebohrt wird, Tieflochbohren mit 1mm Rückzugshöhe aktivieren (Bohrer wird nach der eingestellten Bearbeitungstiefe ganz (+1mm) herausgefahren, damit Späne rausfallen und neue Schmierung reinkommt)
- \item VCarve Werkstückeinstellungen (im rechten Fensterteil bei den Werkzeugwegen): Eintauchhöhe ca. 4mm, kann nach Planfräsen auch auf 2mm verringert werden. \\ Sichere Flughöhe höher als Spannpratzen+Aufbauten ($>$ 50mm), sinnvolle Parkposition sehr hoch über Werkstück (Kollision mit Spannpratze?)
+ \item Bohren: wenn Fräser zum Bohren verwendet werden oder relativ tief gebohrt wird, Tieflochbohren mit 1mm Rückzugshöhe aktivieren (Bohrer wird nach der eingestellten Bearbeitungstiefe ganz (+1mm) herausgefahren, damit Späne rausfallen und neue Schmierung reinkommt)
+ \item Werkstückeinstellungen prüfen (VCarve: im rechten Fensterteil bei den Werkzeugwegen):
+\begin{itemize}
+ \item Eintauchhöhe über dem Werkstück 6-4\,mm, nach Planfräsen auch 2mm.
+ \item Sichere Flughöhe höher als Spannpratzen+Aufbauten ($>$ 50mm)
+\item Parkposition an sinnvollem Ort und sehr hoch über Werkstück (Kollision mit Spannpratze?)
+\end{itemize}
  \item Rohling abmessen, mit CAM vergleichen
  \begin{enumerate}
   \item Z: CAM-Maß mindestens 1mm kleiner als Rohmaterial \\
@@ -155,18 +159,17 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
         Fräsungen näher als 2mm am Tisch werden von der Steuerung sowieso verboten, wenn die Werkzeuglänge korrekt eingemessen wurde
   \item X/Y: CAM-Maß $\leq$ Rohmaterial (Sicherheitsabstand je nach Spannmittel. Durchmesser der Spindelmutter beachten!)
  \end{enumerate}
- \item Zur Zeit geht nur ein Werkzeug pro erzeugte NC-Datei! \todo{reparieren!}
+ \item Prüfen, dass die Werkzeugnummern verschiedener Werkzeuge unterschiedlich sind. Wir haben mehr Werkzeuge im Lab, als es mögliche Nummern gibt!
+ \item Zur Zeit geht nur ein Werkzeug pro erzeugte NC-Datei!% \todo{reparieren!}
 \end{enumerate}
 
 \subsection{Einrichten} \label{einrichten}
 \begin{enumerate}
  \item Festspannung Werkstück: Es darf nichts mehr wackeln können (ggf. mit Schonhammer testen!)
  \item Durchfräs-Unterlage? Beim Fräsen etwa 2-5mm dick, bei Verwendung von Bohrern ggf. mehr (Länge der Bohrerspitze!)
- \item Drehung setzen per User-Button oder G68R zurücksetzen per Dialog \todo{TODO erklären...}.\\ \todo{TODO noch gibts das garnicht, der Button usw muss erst gebastelt werden.}\\ \textbf{Beachte:} Es kann auch noch vom Vorgänger-Job eine Drehung gesetzt sein! %\todo{(wie mit Kantentaster?)}
+ \item Drehung des Koordinatensystems (G68R) setzen oder zurücksetzen im Reiter \enquote{Variablen}\\ \textbf{Beachte:} Es kann auch noch vom Vorgänger-Job eine Drehung gesetzt sein!
  \item Werkzeug einspannen, möglichst kurz und fest einspannen, dabei passende Spannzange verwenden. (Eine Spannzange mit Bezeichnung 3-2 ist für Fräser mit 2\dots 3\,mm Schaft. Ein Fräser mit  $3,1$\,mm Schaft darf also \emph{nicht} in eine 3-2 Spannzange!)
- \item \textbf{Vor} dem Werkzeuglänge messen den Nullpunkt weit oberhalb jeglicher Teile in der Fräse  setzen (z.\,B.\  Schraubstock, Material, Spannpratzen, \dots), da manchmal nach dem Werkzeuglängemessen auf die Parkposition des letzten Jobs zurück gefahren wird. Wird jetzt z.\,B.\  der Schraubstock verwendet, kann diese mitten im Schraubstock liegen \textbf{$\rightarrow$ Crash!}.
-       \todo{Bug:} Dies ist ein Bug, der vermutlich behoben wurde. Jedes Auftreten muss sofort per Mail an Max gemeldet werden!
- \item Jetzt sollte man bereits die richtige Werkzeugnummer für das erste Werkzeug im Job haben (Anzeige: T17), sonst User-Button \knopf{Manueller Wkz.wechsel}
+ \item Jetzt sollte man bereits die richtige Werkzeugnummer für das erste Werkzeug im Job haben (Anzeige: T17), sonst User-Button \knopf{Manueller Wkz.wechsel} und dann \knopf{Reset}
  \item \textbf{Vor} dem Antasten muss die Werkzeuglänge gemessen werden. %.\todo{ToDo:oder Kantentaster kalibrieren}
  \item Nullpunkt setzen Z,X,Y, \emph{nachdem} die Werkzeuglänge gemessen wurde. Den Z-Null zu vergessen ist besonders riskant.\\
 Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll, muss dieser mit Punkt statt Komma eingegeben werden, sonst wird er falsch angenommen!
@@ -189,28 +192,30 @@ Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll
 \subsection{Auftrag starten}
 \begin{enumerate}
  \item Deckenlüftung (Absaugung) an
- \item Spindel muss vorgeheizt sein, sonst User-Button \knopf{Spindel vorheizen} betätigen. (Während des Vorheizens müssen die Türen geschlossen bleiben und die Spannmutter fest angezogen sein.)
- \item Kühlung an. Kommt genug Nebel? Kurz warten, dass die Luftblasen weg sind. (z.B. Acrylplatte in den Nebelstrahl halten und schauen wieviel Tropfen hängenbleiben)
+ \item Spindel muss vorgeheizt sein, sonst User-Button \knopf{Spindel vorheizen} betätigen.\\ 
+Damit die Spannmutter nicht herausfallen kann, beim Vorheizen entweder einen Fräser fest einspannen oder Spannmutter und Spannzange entnehmen.
+Während des Vorheizens müssen die Türen geschlossen bleiben. ) % TODO bei neuer Spindel mit automatischem Wkzw. müssen wir wohl immer ein Werkzeug drinhaben.
+ \item Kühlung an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es einen \enquote{Turbo-Schalter} (roter Hahn). \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen wieviel Tropfen hängenbleiben) 
  \item Start Drücken - Maschine fährt los.
  \item Beobachten, anfangs immer einen Finger nahe bei der F4-Taste haben, ggf. den Vorschub beim ersten Eintauchen runterstellen (\knopf{F-} im Automatik-Menü)
  \item Mit Druck auf \knopf{STOP} oder F4 hält die Maschine an und geht in Pause-Status (siehe \ref{resync})
 \end{enumerate}
 
 \subsection{Werkzeugwechsel}
-\textbf{ACHTUNG: momentan nicht möglich, daher neue Datei laden und wie bei Auftrag starten weiter.}
+\textbf{Automatischer Werkzeugwechsel ist momentan nicht möglich, daher neue Datei laden und wie bei Einrichten (\ref{einrichten}) $\rightarrow$ Werkzeug einspannen  weiter.}
 
- Wenn die Maschine anzeigt: Bitte Werkzeug x einlegen und an die Werkzeugwechselposition gefahren ist:
- \begin{enumerate}
-  \item Z-Achse nach oben fahren und evtl. nach Vorne, dass man gescheit drankommt.
-  \item Alten Fräser ausspannen (bei großem Fräser den Fräser festhalten, da er sonst rausfallen kann!)
-  \item ggf. Spannzange wechseln, dabei auf richtige Größe der Spannzange achten!
-  \item neuen Fräser einspannen (fest!)
-  \item Kühlmittelstrahlen kontrollieren
-	\item Werkzeuglängenmesser von Spänen befreien.
-  \item optional Türen schließen (Wenn die Tür während des Werkzeuglängemessens geöffnet wird, geht die Maschine in den Notaus-Modus, dann ist kein Fortsetzen des Fräsjobs möglich!)
-  \item an der Steuersoftware: ins User-Menü gehen, Symbol \enquote{Werkzeuglängenmessung} anklicken und abwarten bis fertig
-  \item an der Steuersoftware: ins Automatik-Menü gehen, Kühlung an, Start klicken
- \end{enumerate}
+%  Wenn die Maschine anzeigt: Bitte Werkzeug x einlegen und an die Werkzeugwechselposition gefahren ist:
+%  \begin{enumerate}
+%   \item Z-Achse nach oben fahren und evtl. nach Vorne, dass man gescheit drankommt.
+%   \item Alten Fräser ausspannen (bei großem Fräser den Fräser festhalten, da er sonst rausfallen kann!)
+%   \item ggf. Spannzange wechseln, dabei auf richtige Größe der Spannzange achten!
+%   \item neuen Fräser einspannen (fest!)
+%   \item Kühlmittelstrahlen kontrollieren
+% 	\item Werkzeuglängenmesser von Spänen befreien.
+%   \item optional Türen schließen (Wenn die Tür während des Werkzeuglängemessens geöffnet wird, geht die Maschine in den Notaus-Modus, dann ist kein Fortsetzen des Fräsjobs möglich!)
+%   \item an der Steuersoftware: ins User-Menü gehen, Symbol \enquote{Werkzeuglängenmessung} anklicken und abwarten bis fertig
+%   \item an der Steuersoftware: ins Automatik-Menü gehen, Kühlung an, Start klicken
+%  \end{enumerate}
  
 \subsection{Wiederfortsetzen nach Pause}\label{resync}
 
@@ -279,7 +284,7 @@ Die sinnvolle Reihenfolge beim Bedienen ist:
 \end{enumerate}
 
 
-\section{Troubleshooting}
+\section{Fehlerbehebung}
 
 \subsection{Schrittverlust}
 Bei zu großer Kraft kann die Fräse Schritte verlieren, d.h. es gibt jetzt einen Versatz zwischen der echten Position und der, die die Steuerung haben will. Das kann die Steuerung nicht merken! Abhilfe ist im Zweifelsfall eine erneute Referenzfahrt, das kann nie schaden und zeigt an, ob es Schrittverlust gab. Wenn nur 1 Schritt Verlust angezeigt wird, kann man das als Messfehler ignorieren.
