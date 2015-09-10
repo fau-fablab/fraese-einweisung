@@ -1,2 +1,2 @@
-TARGET=Einweisung_Fräse Einweisungsliste_Fräse
+TARGET=Einweisung_Fraese Einweisungsliste_Fraese
 include fablab-document/Makefile.include
