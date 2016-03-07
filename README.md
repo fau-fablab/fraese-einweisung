@@ -5,8 +5,8 @@ Einweisung des [FAU FabLab](https://fablab.fau.de) in die [CNC Fräse](https://f
 
 Die neueste Version aus [github](https://github.com/fau-fablab/fraese-einweisung) ist als PDF abrufbar:
 
-- [Einweisung](https://user.fablab.fau.de/~buildserver/fraese-einweisung/Einweisung_Fraese.pdf)
-- [Einweisungsliste](https://user.fablab.fau.de/~buildserver/fraese-einweisung/Einweisungsliste_Fraese.pdf)
+- [Einweisung](https://brain.fablab.fau.de/build/fraese-einweisung/Einweisung_Fraese.pdf)
+- [Einweisungsliste](https://brain.fablab.fau.de/build/fraese-einweisung/Einweisungsliste_Fraese.pdf)
 
 auschecken
 ----------
@@ -17,7 +17,7 @@ git clone --recursive git@github.com:fau-fablab/fraese-einweisung.git
 
 Technische Details zum Buildserver siehe auf macgyver `/home/buildserver/README`
 
-[![Build Status](https://user.fablab.fau.de/~buildserver/fraese-einweisung/status.svg)](https://user.fablab.fau.de/~buildserver/fraese-einweisung/)
+[![Build Status](https://brain.fablab.fau.de/build/fraese-einweisung/status.svg)](https://brain.fablab.fau.de/build/fraese-einweisung/)
 
 Lizenz
 ------
