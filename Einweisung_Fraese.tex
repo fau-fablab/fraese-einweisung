@@ -14,11 +14,12 @@
 \usepackage{eurosym}
 \usepackage{tabularx} % Tabellen mit bestimmtem Breitenverhältnis der Spalten
 \usepackage{wrapfig} % Textumlauf um Bilder
+\usepackage[ngerman]{cleveref} % einfachere Referenzierung: \cref{foo} erzeugt z.B. "Kapitel 7" oder "Abbildung 5" je nach Typ der Referenz
 \renewcommand{\texteuro}{\euro}
 
 \linespread{1.2}
 
-\date{2014}
+\date{\today}
 \author{Max, Philipp, Michael u.a.}
 \fancyfoot[L]{kontakt@fablab.fau.de}
 \title{Grundlagen-Einweisung Fräse}
@@ -94,14 +95,20 @@ Absaugvorrichtung \todo{(sobald es sie gibt)}, Längenmessung, Spindel vorheizen
 \end{itemize}
 
  \item Die beschriebenen Abläufe müssen unbedingt beachtet werden. Bei Unklarheiten nachfragen!
+ \item Die Dichtung unten an der Spindel und die HSK-Spanneinrichtung ist schmutzempfindlich, daher:
+ \begin{itemize}
+  \item Hauptschalter immer \textbf{an} schalten, bevor irgendwas in der Fräse gemacht wird! Sonst ist die Spülluft nicht an und Dreck kann in die Spindeldichtung eindringen.\\Bei Wartung: Hauptschalter an, aber Not-Aus gedrückt! (Spülluft ist dann trotzdem an)
+  \item Niemals in der Nähe oder in Richtung der Spindel ausblasen.
+  \item HSK-Aufnahme nicht leer lassen, immer gleich wieder einen Werkzeughalter einsetzen.
+ \end{itemize}
  \item Beim Hantieren in der Fräse:
-	\begin{itemize}
-	\item Schmiermittel und Späne sind nicht gut für die Haut. Einweghandschuhe sind in der Werkbank. Späne auf der Haut nicht wegreiben, sondern abwaschen.
-	\item Beim Ausblasen für Augenschutz (Späne) und ggf.\  Gehörschutz sorgen. Ausblasen verteilt oft nur den Dreck, deshalb lieber kehren oder saugen. Es besteht die Gefahr, dass Dreck in abgedichtete Bereiche, z.\,B.\  unten bei der Spindel, gepresst wird.
-	\item Während jemand an der offenen Fräse ist, bedient kein anderer den PC. Zum manuellen Verfahren beim Antasten die Tastatur mitnehmen und es selber machen!
-	\item Spindel und Nebelkühlung auslassen, solange die Maschine offen ist!
-	\item Ausnahme Kühlung: beim Justieren der Kühlmittelstrahlen auf den Fräser darf die Kühlung natürlich an sein.
-	\end{itemize}
+ \begin{itemize}
+  \item Schmiermittel und Späne sind nicht gut für die Haut. Einweghandschuhe sind in der Werkbank. Späne auf der Haut nicht wegreiben, sondern abwaschen.
+  \item Beim Ausblasen für Augenschutz (Späne) und ggf.\  Gehörschutz sorgen. Ausblasen verteilt oft nur den Dreck, deshalb lieber kehren oder saugen. Es besteht die Gefahr, dass Dreck in abgedichtete Bereiche, z.\,B.\  unten bei der Spindel, gepresst wird.
+  \item Während jemand an der offenen Fräse ist, bedient kein anderer den PC. Zum manuellen Verfahren beim Antasten die Tastatur mitnehmen und es selber machen!
+  \item Spindel und Nebelkühlung auslassen, solange die Maschine offen ist!
+  \item Ausnahme Kühlung: beim Justieren der Kühlmittelstrahlen auf den Fräser darf die Kühlung natürlich an sein.
+ \end{itemize}
  \item Materialien, die leitfähigen oder abrasiven Staub erzeugen, sind vorerst nicht erlaubt (unter anderem Graphit, Carbon, Stein, GFK, Platinen). Für Holz ist die Absaugung zu verwenden, an die der für Holzstaub zugelassene Festool Staubsauger angeschlossen werden muss.
  \item Die Deckenlüftung muss an sein, solange die Fräse in Benutzung ist, auch beim Warmlaufen.
  \item Bei Bruch eines Fräsers muss er gezahlt werden, unabhängig von einem Verschulden des Benutzers. (Irgendwo muss das Geld für den neuen Fräser ja herkommen.)
@@ -126,6 +133,62 @@ Absaugvorrichtung \todo{(sobald es sie gibt)}, Längenmessung, Spindel vorheizen
 	  \end{itemize}
  \item Vor dem Ausschalten: Tisch in Parkposition fahren (\knopf{P2} im Referenzfahrt-Menü)
 \end{itemize}
+
+\clearpage
+\section{Wartung und Vorbereitung der Maschine}
+\begin{wrapfigure}{r}{6.5cm}
+\centering
+\includegraphics[width=5cm]{./img/hsk-einsatz.jpg}
+\caption{HSK-Einsatz}
+rot markiert: Kegel- und Planfläche
+\label{fig:hsk-einsatz}
+\end{wrapfigure}
+
+
+Wenn mehreres ansteht, soll die größte anstehende Wartung zuerst ausgeführt werden (d.h. zuerst monatliche, dann 14tägige Wartung). So geht es schneller.
+
+\subsection{jedes mal / täglich}
+\begin{itemize}
+	\item auf gleichmäßigen Luftaustritt kreisförmig unten an der Spindel prüfen (\cref{fig:hsk-aufnahme}, gelb)
+	\item warmlaufen
+	\item Kegel- und Planfläche der HSK-Aufnahme an der Spindel mit Papiertuch säubern (\cref{fig:hsk-aufnahme}, blau und rot)
+	\item alle verwendeten HSK-Einsätze mit Papiertuch säubern (Kegel- und Planfläche, siehe \cref{fig:hsk-einsatz})
+\end{itemize}
+
+\begin{figure}[b]
+\centering
+\includegraphics[height=6.4cm]{./img/hsk-aufnahme.jpg}
+\caption{Spindelnase von unten: Spindeldichtung mit Luftaustritt (gelb), \\HSK-Aufnahme mit Kegelfläche (rot) und Planfläche (blau)}
+\label{fig:hsk-aufnahme}
+\end{figure}
+
+\subsection{14tägig}
+An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz})
+\begin{itemize}
+	\item mit Spiritus und Papiertuch säubern, 
+	\item „Klüber Lusin Protect G31“ schütteln und Flächen damit kurz einsprühen, mit sauberem Papiertuch gleichmäßig verteilen. Ergebnis ist ein unsichtbar dünner Wachsfilm gegen Rost.
+	\item trocknen lassen
+	\item \emph{Nicht} die HSK-Aufnahme an der Spindel einsprühen, nur die Einsätze.
+\end{itemize}
+
+\subsection{monatlich}
+
+\begin{itemize}
+	\item „Metaflux Moly-Spray 70.82“ gut schütteln (Feststoffanteil!)
+	\item Segmente des Greifers in der Mitte der HSK-Aufnahme (\cref{fig:hsk-greifer}) damit schmieren (graue Flüssigkeit)
+	\item Mehrmals HSK-Einsatz ein- und auswechseln, um Schmiermittel zu verteilen. Dabei Schmiermittel abputzen, das am Einsatz hängen bleibt.
+	\item Greifer und alles andere mit Papiertuch abputzen, um überschüssiges Schmiermittel zu entfernen.
+\end{itemize}
+
+\begin{figure}[hb]
+\centering
+\includegraphics[height=6.4cm]{./img/hsk-aufnahme-segmente.jpg}
+\caption{Schmierung der HSK-Aufnahme am Greifer (Pfeile)}
+\label{fig:hsk-greifer}
+\end{figure}
+
+\subsection{noch seltener}
+\todo{TODO}
 
 
 \section{Checkliste Auftragsstart}
@@ -163,14 +226,38 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
  \item Zur Zeit geht nur ein Werkzeug pro erzeugte NC-Datei!% \todo{reparieren!}
 \end{enumerate}
 
-\subsection{Einrichten} \label{einrichten}
+\subsection{Einrichten Teil 1/2} \label{einrichten}
 \begin{enumerate}
+ \item Wartungsplan abgearbeitet?
  \item Festspannung Werkstück: Es darf nichts mehr wackeln können (ggf. mit Schonhammer testen!)
  \item Durchfräs-Unterlage? Beim Fräsen etwa 2-5mm dick, bei Verwendung von Bohrern ggf. mehr (Länge der Bohrerspitze!)
  \item Drehung des Koordinatensystems (G68R) setzen oder zurücksetzen im Reiter \enquote{Variablen}\\ \textbf{Beachte:} Es kann auch noch vom Vorgänger-Job eine Drehung gesetzt sein!
- \item Werkzeug einspannen, möglichst kurz und fest einspannen, dabei passende Spannzange verwenden. (Eine Spannzange mit Bezeichnung 3-2 ist für Fräser mit 2\dots 3\,mm Schaft. Ein Fräser mit  $3,1$\,mm Schaft darf also \emph{nicht} in eine 3-2 Spannzange!)
- \item Jetzt sollte man bereits die richtige Werkzeugnummer für das erste Werkzeug im Job haben (Anzeige: T17), sonst User-Button \knopf{Manueller Wkz.wechsel} und dann \knopf{Reset}
- \item \textbf{Vor} dem Antasten muss die Werkzeuglänge gemessen werden. %.\todo{ToDo:oder Kantentaster kalibrieren}
+\end{enumerate}
+
+\subsection{Werkzeugwechsel}
+\begin{enumerate}
+ \item neuen Werkzeughalter vorbereiten:
+\begin{itemize}
+	\item alle Spannflächen müssen sauber sein, ggf. mit Papiertuch putzen.
+	\item Spannzange auswählen (Eine Spannzange mit Bezeichnung 3-2 ist für Fräser mit 2\dots 3\,mm Schaft. Ein Fräser mit  $3,1$\,mm Schaft darf also \emph{nicht} in eine 3-2 Spannzange!)
+	\item Spannzange in Spannmutter einsetzen: \emph{Schräg ansetzen} und dann einklicken.
+	\item Fräser auf Beschädigung prüfen
+	\item Fräser einspannen, möglichst kurz und fest einspannen, dabei passende Spannzange verwenden.
+\end{itemize}
+ \item Werkzeugwechsel (\knopf{User} $\rightarrow$ \knopf{Werkzeugwechsel})
+\begin{itemize}
+	\item Bisherigen Werkzeughalter auswerfen: Diesen festhalten, damit er dabei nicht herunterfällt. Grünen Taster an Spindel gedrückt halten, Halter entnehmen.
+ \item Neuer Halter und Gegenstück an der Spindel muss sauber sein (Kegel und Planfläche)!
+ \item Neuen Halter einsetzen, dazu wieder Taster gedrückt halten, Halter bis ganz oben einschieben, Taster loslassen
+ \item \knopf{OK}, Werkzeugnummer eingeben, \knopf{OK}
+ \item Jetzt unbedingt \knopf{Reset} drücken, nichts anderes!
+\end{itemize}
+\item Werkzeuglänge messen  (\knopf{User} $\rightarrow$ \knopf{Wkz.länge})
+\end{enumerate}
+
+\subsection{Einrichten Teil 2/2}
+\begin{enumerate}
+ \item \textbf{Vor} dem Antasten muss die Werkzeuglänge gemessen werden
  \item Nullpunkt setzen Z,X,Y, \emph{nachdem} die Werkzeuglänge gemessen wurde. Den Z-Null zu vergessen ist besonders riskant.\\
 Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll, muss dieser mit Punkt statt Komma eingegeben werden, sonst wird er falsch angenommen!
  % \todo{Todo: wie per Kantentaster? Ein-/Ausbau Kantentaster...   wie ohne? ...  $\rightarrow$ in Extra Abschnitt erklären}
@@ -195,14 +282,14 @@ Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll
  \item Spindel muss vorgeheizt sein, sonst User-Button \knopf{Spindel vorheizen} betätigen.\\ 
 Damit die Spannmutter nicht herausfallen kann, beim Vorheizen entweder einen Fräser fest einspannen oder Spannmutter und Spannzange entnehmen.
 Während des Vorheizens müssen die Türen geschlossen bleiben. ) % TODO bei neuer Spindel mit automatischem Wkzw. müssen wir wohl immer ein Werkzeug drinhaben.
- \item Kühlung an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es einen \enquote{Turbo-Schalter} (roter Hahn). \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen wieviel Tropfen hängenbleiben) 
+ \item Kühlung an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es den Boost-Taster. \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen wieviel Tropfen hängenbleiben) 
  \item Start Drücken - Maschine fährt los.
  \item Beobachten, anfangs immer einen Finger nahe bei der F4-Taste haben, ggf. den Vorschub beim ersten Eintauchen runterstellen (\knopf{F-} im Automatik-Menü)
  \item Mit Druck auf \knopf{STOP} oder F4 hält die Maschine an und geht in Pause-Status (siehe \ref{resync})
 \end{enumerate}
 
-\subsection{Werkzeugwechsel}
-\textbf{Automatischer Werkzeugwechsel ist momentan nicht möglich, daher neue Datei laden und wie bei Einrichten (\ref{einrichten}) $\rightarrow$ Werkzeug einspannen  weiter.}
+\subsection{Auftrag mit mehreren Werkzeugen}
+Es geht nur ein Werkzeug pro Datei. Neue Datei laden, Werkzeugwechsel wie oben beschrieben, starten.
 
 %  Wenn die Maschine anzeigt: Bitte Werkzeug x einlegen und an die Werkzeugwechselposition gefahren ist:
 %  \begin{enumerate}

@@ -3,6 +3,8 @@
 output/
 revision.tex
 *~
+*.backup
+
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
