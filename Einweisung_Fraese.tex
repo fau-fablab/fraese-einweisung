@@ -88,7 +88,7 @@ Absaugvorrichtung \todo{(sobald es sie gibt)}, Längenmessung, Spindel vorheizen
  \item Die Fräse ist ein kompliziertes und teures Gerät; eine Anleitung dazu kann nie vollständig sein. Nachdenken, Sorgfalt und Vorsicht sind nötig, damit weder Menschen noch die Maschine zu Schaden kommen.
  \item Mache dich mit den Schutzeinrichtungen und ihren Einschränkungen vertraut:
 \begin{itemize}
- \item Not-Aus vorne an der Fräse: Funktioniert immer, die Spindel läuft aber noch nach.
+ \item Not-Aus an der Fräse: Funktioniert immer, die Spindel läuft aber noch \emph{bis zu zwei Minuten} nach.
  \item Türen mit Schutzschalter: Beim Öffnen der Türen wird das Programm angehalten, die Spindel läuft nach. Manuelles Verfahren, Spindel anschalten usw. ist aber weiterhin möglich.
  \item Begrenzungen in der Steuerung: Wenn die Werkzeuglänge korrekt gemessen wurde, versucht die Steuerung zu verhindern dass man den Fräser in den Nutentisch rammt.
  \item Weil der PC sich aufhängen kann, sind die PC-Tasten sind kein Ersatz für den Not-Aus.
@@ -171,6 +171,7 @@ An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}
 	\item Den Greifer in der Mitte der HSK-Aufnahme damit schmieren. Das Moly-Spray (graue Flüssigkeit) dazu in die 6 Lücken zwischen den Segmenten des Greifers aufbringen (\cref{fig:hsk-greifer}). 
 	\item Mehrmals HSK-Einsatz ein- und auswechseln, um Schmiermittel zu verteilen. Dabei Schmiermittel abputzen, das am Einsatz hängen bleibt.
 	\item Greifer und alles andere mit Papiertuch abputzen, um überschüssiges Schmiermittel zu entfernen.
+	\item Spindel kurz laufen lassen (z.B. mit Warmlaufprogramm), wieder ausschalten. Nochmal HSK-Einsatz auswechseln und putzen.
 	\item Der Werkzeughalter darf beim Wechseln kein graues Schmiermittel mehr auf die Außenflächen bekommen. Sonst muss weiter geputzt werden.
 \end{itemize}
 
@@ -304,6 +305,7 @@ Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll
 \subsection{Auftrag starten}
 \begin{enumerate}
  \item Deckenlüftung (Absaugung) an
+ \item Kühlaggregat an
  \item Spindel muss vorgeheizt sein, sonst User-Button \knopf{Spindel vorheizen} betätigen.\\ 
 Damit die Spannmutter nicht herausfallen kann, beim Vorheizen entweder einen Fräser fest einspannen oder Spannmutter und Spannzange entnehmen.
 Während des Vorheizens müssen die Türen geschlossen bleiben. ) % TODO bei neuer Spindel mit automatischem Wkzw. müssen wir wohl immer ein Werkzeug drinhaben.
@@ -397,6 +399,16 @@ Die sinnvolle Reihenfolge beim Bedienen ist:
 
 
 \section{Fehlerbehebung}
+
+\subsection{Notaus löst aus}
+Eine Schutzabschaltung kann u.\,a. folgende Gründe haben:
+\begin{itemize}
+	\item Umrichter Fehler
+	\item Kühlaggregat aus / Fehler
+	\item HSK-Einsatz nicht korrekt eingelegt (Lampe \enquote{Werkzeug OK}?)
+	\item Notaus-Knopf gedrückt
+\end{itemize}
+
 
 \subsection{Schrittverlust}
 Bei zu großer Kraft kann die Fräse Schritte verlieren, d.h. es gibt jetzt einen Versatz zwischen der echten Position und der, die die Steuerung haben will. Das kann die Steuerung nicht merken! Abhilfe ist im Zweifelsfall eine erneute Referenzfahrt, das kann nie schaden und zeigt an, ob es Schrittverlust gab. Wenn nur 1 Schritt Verlust angezeigt wird, kann man das als Messfehler ignorieren.
