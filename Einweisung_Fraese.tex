@@ -119,7 +119,7 @@ Das Prozedere in diesem Fall ist kompliziert, deshalb in diesem Fall Maschine au
 	\item Spindel und Nebelkühlung auslassen, solange die Maschine offen ist!
 	\item Ausnahme Kühlung: beim Justieren der Kühlmittelstrahlen auf den Fräser darf die Kühlung natürlich an sein.
 \end{itemize}
-	\item Bei der Verwendung von Materialien, die leitfähigen, abrasiven oder anderweitig gefährlichen Staub erzeugen können, muss unbedingt abgesaugt werden! (unter anderem Hartholz, Graphit, Carbon, Stein, GFK, Platinenmaterial). Für all diese Materialien ist der Festool-Absauger in Verbindung mit dem Zyklonabscheider vorn an der Maschine zu verwenden, da er für Feinstäube zugelassen ist. Es ist wichtig, den Staubsauger so stark einzustellen, dass kein Staub auf dem gefrästen Material liegen bleibt. Im Zweifel lieber etwas stärker einstellen. Hierbei \textbf{KEIN KSS} verwenden.
+	\item Bei der Verwendung von Materialien, die leitfähigen, abrasiven oder anderweitig gefährlichen Staub erzeugen können, muss unbedingt abgesaugt werden! (unter anderem Hartholz, Graphit, Carbon, Stein, GFK, Platinenmaterial). Für all diese Materialien ist der Festool-Absauger in Verbindung mit dem Zyklonabscheider vorn an der Maschine zu verwenden, da der Sauger für Feinstäube zugelassen ist. Es ist wichtig, den Staubsauger so stark einzustellen, dass kein Staub auf dem gefrästen Material liegen bleibt. Im Zweifel lieber etwas stärker einstellen. Hierbei \textbf{KEIN KSS} verwenden.
 	\item Die Deckenlüftung muss an sein, solange die Fräse in Benutzung ist, auch beim Warmlaufen.
 	\item Bei Bruch eines Fräsers muss er gezahlt werden, unabhängig von einem Verschulden des Benutzers. (Irgendwo muss das Geld für den neuen Fräser ja herkommen.)
 \end{itemize}
@@ -149,7 +149,7 @@ Wenn mehreres ansteht, soll die größte anstehende Wartung zuerst ausgeführt w
 	\item Füllstand KSS kontrollieren, ggf. nachfüllen: KSS Typ \enquote{Jokisch Kompakt V} im Verhältnis 1:10 bis 1:20 mit Wasser verdünnt
 	\item auf gleichmäßigen Luftaustritt ringsum an der Spindeldichtung prüfen (\cref{fig:hsk-aufnahme}, gelb)
 	\item ggf. Dreck von der Spindeldichtung mit feuchtem Tuch abwischen
-	\item warmlaufen, auch jedes mal nach über \todo{30min(?)} Stillstand. % laut HSD: Wenn die Spindel zwischendurch abkühlen konnte.
+	\item warmlaufen lassen, auch jedes mal nach über \todo{30min(?)} Stillstand. % laut HSD: Wenn die Spindel zwischendurch abkühlen konnte.
 	\item Kegel- und Planfläche der HSK-Aufnahme an der Spindel mit Papiertuch säubern (\cref{fig:hsk-aufnahme}, blau und rot)
 	\item alle verwendeten HSK-Einsätze mit Papiertuch säubern (Kegel- und Planfläche, siehe \cref{fig:hsk-einsatz})
 \end{itemize}
@@ -189,21 +189,21 @@ An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}
 \end{figure}
 
 \subsection{halbjährlich oder seltener}
-jährlich Kühlwasser tauschen (Korrosionsschutzmittel geht kaputt)
 
-Anzugkraft Spindel ... ???
-
-BZT Wartung siehe BZT Handbuch
-
-Kabel und Schläuche auf festen Sitz prüfen
-
-Not-Aus Funktion testen
+\begin{itemize}
+	\item jährlich Kühlwasser tauschen (Korrosionsschutzmittel geht kaputt)
+	\item Anzugkraft Spindel ... ???
+	\item BZT Wartung siehe BZT Handbuch
+	\item Kabel und Schläuche auf festen Sitz prüfen
+	\item Not-Aus Funktion testen
+\end{itemize}
 
 \subsection{Feierabend / nach Ende der Arbeiten}
 
-Werkzeughalter entnehmen und durch einen sauberen, nicht aufgewärmten (unbenutzten) Werkzeughalter ersetzen. Es droht sonst das Festfressen (Passungsrost).
-
-Vor dem Ausschalten: Tisch in Parkposition fahren (\knopf{P2} im Referenzfahrt-Menü)
+\begin{itemize}
+	\item Werkzeughalter entnehmen und durch einen sauberen, nicht aufgewärmten (unbenutzten) Werkzeughalter ersetzen. Es droht sonst das Festfressen (Passungsrost).
+	\item Vor dem Ausschalten: Tisch in Parkposition fahren (\knopf{P2} im Referenzfahrt-Menü)
+\end{itemize}
 
 Säubern:
 \begin{itemize}
@@ -252,7 +252,7 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 	\item X/Y: CAM-Maß $\leq$ Rohmaterial (Sicherheitsabstand je nach Spannmittel. Durchmesser der Spindelmutter beachten!)
  \end{enumerate}
 	\item Prüfen, dass die Werkzeugnummern verschiedener Werkzeuge unterschiedlich sind. Wir haben mehr Werkzeuge im Lab, als es mögliche Nummern gibt!
-	\item Zur Zeit geht nur ein Werkzeug pro erzeugte NC-Datei!% \todo{reparieren!}
+	\item Es geht nur ein Werkzeug pro erzeugte NC-Datei!% \todo{reparieren!}
 \end{enumerate}
 
 \subsection{Einrichten Teil 1/2} \label{einrichten}
@@ -268,10 +268,10 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 	\item neuen Werkzeughalter vorbereiten:
 \begin{itemize}
 	\item alle Spannflächen müssen sauber sein, ggf. mit Papiertuch putzen.
-	\item Spannzange auswählen (Eine Spannzange mit Bezeichnung 3-2 ist für Fräser mit 2\dots 3\,mm Schaft. Ein Fräser mit  $3,1$\,mm Schaft darf also \emph{nicht} in eine 3-2 Spannzange!)
+	\item Spannzange auswählen (Eine Spannzange mit Bezeichnung 3-2 ist für Fräser mit 2\dots 3\,mm Schaft. Ein Fräser mit  3,1\,mm Schaft darf also \emph{nicht} in eine 3-2 Spannzange!)
 	\item Spannzange in Spannmutter einsetzen: \emph{Schräg ansetzen} und dann einklicken.
 	\item Fräser auf Beschädigung prüfen
-	\item Fräser einspannen, möglichst kurz und fest einspannen, dabei passende Spannzange verwenden.
+	\item Fräser einspannen, möglichst kurz einspannen und die Spannmutter fest anziehen.
 \end{itemize}
 	\item Werkzeugwechsel (\knopf{User} $\rightarrow$ \knopf{Werkzeugwechsel})
 \begin{itemize}
@@ -314,9 +314,9 @@ Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll
  \item Kühlaggregat an
  \item Spindel muss vorgeheizt sein, sonst User-Button \knopf{Spindel vorheizen} betätigen.\\ 
 Damit die Spannmutter nicht herausfallen kann, beim Vorheizen entweder einen Fräser fest einspannen oder Spannmutter und Spannzange entnehmen.
-Während des Vorheizens müssen die Türen geschlossen bleiben. ) % TODO bei neuer Spindel mit automatischem Wkzw. müssen wir wohl immer ein Werkzeug drinhaben.
+Während des Vorheizens müssen die Türen geschlossen bleiben. % TODO bei neuer Spindel mit automatischem Wkzw. müssen wir immer einen Werkzeughalter drinhaben.
  \item Kühlung an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es den Boost-Taster. \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen wieviel Tropfen hängenbleiben) 
- \item Start Drücken - Maschine fährt los.
+ \item Start drücken - Maschine fährt los.
  \item Beobachten, anfangs immer einen Finger nahe bei der F4-Taste haben, ggf. den Vorschub beim ersten Eintauchen runterstellen (\knopf{F-} im Automatik-Menü)
  \item Mit Druck auf \knopf{STOP} oder F4 hält die Maschine an und geht in Pause-Status (siehe \ref{resync})
 \end{enumerate}
@@ -398,7 +398,7 @@ Die sinnvolle Reihenfolge beim Bedienen ist:
 
 \subsection{Auftragsende, Bezahlung}
 \begin{enumerate}
- \item \textbf{Beachte:} Die angezeigte Zeit stimmt zur Zeit nicht, wenn man zwischendrin pausiert. \\\todo{Das ist ein Bug, der bereits gemeldet, aber noch nicht behoben wurde.}\\ Bitte orientierte dich an der vorausgesagten Zeit, die nach dem Neuladen der Datei angezeigt wird.
+ \item \textbf{Beachte:} Die angezeigte Zeit stimmt zur Zeit nicht, wenn man zwischendrin pausiert. \\\todo{Das ist ein Bug, der bereits gemeldet, aber noch nicht behoben wurde.}\\ Bitte orientierte dich an der vorausgesagten Zeit, die nach dem Neuladen der Datei angezeigt wird oder stoppe die Maschinenzeit während des Betriebs.
  \item Eingeben und Bezahlen im Kassenterminal, Details siehe Fräserpreisliste.
  \item Aufräumen wie unter \ref{ordnung} beschrieben.
 \end{enumerate}
@@ -409,10 +409,11 @@ Die sinnvolle Reihenfolge beim Bedienen ist:
 \subsection{Notaus löst aus}
 Eine Schutzabschaltung kann u.\,a. folgende Gründe haben:
 \begin{itemize}
-	\item Umrichter Fehler
+	\item Umrichterfehler
 	\item Kühlaggregat aus / Fehler
 	\item HSK-Einsatz nicht korrekt eingelegt (Lampe \enquote{Werkzeug OK}?)
 	\item Notaus-Knopf gedrückt
+	\item Fehlbedienung
 \end{itemize}
 
 \subsection{Maschine dreht nur bis ca. 15000 Umdrehungen hoch und schaltet dann ab}
@@ -435,11 +436,12 @@ Bei zu großer Kraft kann die Fräse Schritte verlieren, d.h. es gibt jetzt eine
  \item Schrittverlust ist zu befürchten $\rightarrow$ Referenzfahrt!
  \item Vorderes abgebrochenes Teil des Fräsers anschauen: optisch in Ordnung? verklebt (Alu/Kunststoff)? noch scharf?
  \item Restliche Hartmetallteile aus dem Werkstück entfernen, sonst wird der nächste Fräser bei Berührung gleich wieder zerstört.
- \item Aufbauschneide? wenn ja: mehr KSS verwenden!
- \item Aufspannung starr genug? Blech wird gerne hochgezogen, sodass die Zustellung zu groß wird
+ \item Aufbauschneide? wenn ja: mehr KSS oder richtigen Fräser verwenden!
+ \item Aufspannung starr genug? Blech wird gerne hochgezogen, sodass die Zustellung zu groß wird oder den Fräser einklemmt.
  \item Ausreichend Schmierung?
  \item Zustellung verringern bei gleichem Vorschub, oder Vorschub verringern. Hat beides seine Vor- und Nachteile.
  \item Stege zu klein $\rightarrow$ Werkstück verschiebt sich und klemmt in den Fräser $\rightarrow$ Stege größer machen oder umspannen
+ \item Falsche Schnittgeschwindigkeit? Im Datenblatt des Fräsers nachschauen und nachrechnen.
  \end{itemize}
 
 
