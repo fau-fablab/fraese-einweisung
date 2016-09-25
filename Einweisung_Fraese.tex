@@ -434,6 +434,8 @@ In über 90\% aller Fälle reicht Profil 1 aus, auch z.B. für 10mm Fräser ZOX 
 Hintergrund:\\
 Der Umrichter will den Motor nur bis leicht über den Anfang der Feldschwächung betreiben, der bei unserer Spindel bei 12000 rpm beginnt. Daher wird dem Umrichter im Profil 1 für höhere Drehzahlen vorgegaukelt, dass die Feldschwächung erst bei 24000 rpm anfängt. Damit steuert der Umrichter die den Motor auf zu geringer Spannung aber korrekter Frequenz. So ist zwar das Drehmoment, welches eine Funktion des Stromes ist, nicht maximal möglich, aber die Drehzahl sehr wohl. 
 
+\subsection{Probleme über 20.000 Umdrehungen}
+Die Regelung des vorhandenen Danfoss Umrichters spinnt bei zu hoher Drehzahl. Daher muss man sich bis auf weiteres mit 20.000\,rpm zufrieden geben.
 
 \subsection{Schrittverlust}
 Bei zu großer Kraft kann die Fräse Schritte verlieren, d.h. es gibt jetzt einen Versatz zwischen der echten Position und der, die die Steuerung haben will. Das kann die Steuerung nicht merken! Abhilfe ist im Zweifelsfall eine erneute Referenzfahrt, das kann nie schaden und zeigt an, ob es Schrittverlust gab. Wenn nur 1 Schritt Verlust angezeigt wird, kann man das als Messfehler ignorieren.
@@ -463,6 +465,30 @@ TCA: Kollision mit \enquote{verbotenem Bereich} rund um den Längenmesstaster, a
 
 \section{Grundlagen}
 \todo{ein kurzer Abschnitt über die nötigen Daten, und Begriffe erklären. Planfräsen, Nutfräsen, Stege,...}
+
+\subsection{Schnittdaten ermitteln}
+
+Die Lebensdauer des Fräsers und Qualität des Ergebnisses hängt stark davon ab, dass Drehzahl und Vorschub passend gewählt werden.
+
+\paragraph{Übliche Werkstoffe} Gute Startwerte für Kunststoff bis Metall liefert das von der Firma Hoffmann vertriebene Zerspanungshandbuch, welches auch online erhältlich ist. Ein Standardfräser ist dort unter Schaftfräser VHM (bzw. HSS) unbeschichtet zu finden, normales Fräsen als Nutfräsen mit Eingriffsbreite $a_e=1\cdot D$, und Eingriffstiefe $a_p=1 \cdot D$. Für kleinere Fräser (3mm und kleiner) sollte man mit der Eingriffstiefe eher auf $D/2$ runtergehen.
+
+\begin{enumerate}
+	\item Nachschauen: Fräserdurchmesser $D$, Schneidenzahl $z$ (1 ... 5).
+	\item Schnittgeschwindigkeit $v_c$ (in m/min) aus der fräserspezifischen Tabelle für das gewünschte Material ablesen.
+	\item Gewünschte Drehzahl $n$ in Umdrehungen pro Minute (1/min, auch rpm genannt) ausrechnen.\\
+		Es gilt $n=\frac{v_c}{\pi D}$ bzw. $v_c=\pi n D$.
+	\item Echte Drehzahl $n$ bestimmen: Wenn möglich, dann die gewünschte Drehzahl, ansonsten so hoch wie möglich. Maximal möglich sind 24.000 rpm, außerdem muss der Fräser dafür zugelassen sein.
+	\item Vorschubgeschwindigkeit $v_f$ in mm/min bestimmen: In der Tabelle ist meist der spezifische Vorschub $f_z=\frac{v_f}{z\cdot n}$ pro Schneide und Umdrehung angegeben. Ausnahme sind Bohrer, dort ist meist der Vorschub pro Umdrehung $f=\frac{v_f}{n}$ angegeben. \\
+		Formel: $v_f = n z f_z$ bzw. $v_f=n f$.
+	\item Übliche Werte für den Vorschub sind 350 (langsam) bis 3000 mm/min (echt schnell). Mehr als 3000 mm/min kann die Maschine nicht.
+	\item Die Tabellenwerte gelten für ideale Aufspannung, z.B. ein mit Schraubstock oder Spannpratzen festgezogenes Stück 10mm dickes Aluminium. Auch sollte der Fräserschaft nicht unnötig weit aus dem Spannfutter herausragen. Bei schlechter Aufspannung bzw. dünnem Material kann die Eintauchtiefe auf $D/2$ reduziert werden. Auch kann der Vorschub halbiert werden, wobei das nicht unbedingt besser für den Fräser ist. Bei viel zu geringem Vorschub reibt der Fräser nur noch, weil kein sauberer Span zustandekommt.
+
+		Die Qualität einer Aufspannung prüft man am Besten am Klang durch Daraufklopfen mit dem Finger oder Schraubenschlüssel. Je weicher die Aufspannung ist, umso deutlicher merkt man einen Unterschied zwischen dem festgespannten Rand und der Mitte des Materials. Bei guter Aufspannung sollte sich außerdem nichts bewegen, wenn man etwas drückt oder zieht.
+\end{enumerate}
+
+Die so gewonnenen Werte speichern wir unter Nutfräsen ab. Dazu sollte immer eine Beschreibung kommen, ob und wann und an was genau sie getestet wurden. Diese Werte werden auch für das Taschenfräsen verwendet, wobei man als seitliche Zustellung zwischen den Fräserbahnen 40\% der Fräserbreite angeben sollte.
+
+\paragraph{Holz} Für Holz benötigt man extrem hohe Schnittgeschwindigkeiten und daher eine hohe Drehzahl: Solange der Fräser dafür zugelassen ist (Aufdruck oder Datenblatt), 18.000 rpm bis etwa 8 mm Durchmesser. Vorschub mit 1000 mm/min anfangen und solange erhöhen, bis das Holz zerfetzt wird oder andere Probleme auftreten.
 
 
 \ccLicense{fraese-einweisung}{Einweisung Fräse}
