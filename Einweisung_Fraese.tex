@@ -66,7 +66,7 @@ Ohne eine unterschriebene Grund-Einweisung in diese Regeln darf die Fräse nicht
  \node[lernstufe, below of = 1, node distance=4.7cm] (2) {\ueb{Stufe 2: Handbetrieb}  Manuelles Verfahren, Einrichten.\\Nicht starten oder wiederfortsetzen.};
 \node[lernstufe, below of = 2, node distance=7.2cm] (3) {\ueb{Fräsenbetreuer: Alles} auch Starten, Freigabe,\\ Einweisung anderer Nutzer};
 \path[pfeilLernen] (0) -- node {Arbeitssicherheit und Ordnung (Kapitel \ref{regeln} Regeln und Hinweise)\\Grund-Einweisung mit Unterschrift} (1);
-\path[pfeilLernen] (1) -- node {Benutzung der Spannmittel üben: Pratzen, Schraubstock, Vakuumtisch \todo{sobald in Betrieb}\\
+\path[pfeilLernen] (1) -- node {Benutzung der Spannmittel üben: Pratzen, Schraubstock\\
 Einrichten unter Aufsicht erlernen:  Handbedienung, Nullpunkt, Spannzange, Werkzeugwechsel,
 Absaugvorrichtung, Längenmessung, Spindel vorheizen, Kühlmittel,  Prüfen vor dem Start, ...\\[0.5em]
 	Einweisung mit Unterschrift, sobald Einrichten sicher beherrscht} (2);
@@ -278,7 +278,7 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 	\item Spannzange auswählen (Eine Spannzange mit Bezeichnung 3-2 ist für Fräser mit 2\dots 3\,mm Schaft. Ein Fräser mit  3,1\,mm Schaft darf also \emph{nicht} in eine 3-2 Spannzange!)
 	\item Spannzange in Spannmutter einsetzen: \emph{Schräg ansetzen} und dann einklicken.
 	\item Fräser auf Beschädigung prüfen
-	\item Fräser einspannen, möglichst kurz einspannen und die Spannmutter fest anziehen.
+	\item Fräser einspannen, die Spannmutter fest anziehen (80 Nm). Der zylindrische Teil des Fräsers soll möglichst weit in die Spannzange eingeschoben werden, darf aber nicht innen anstoßen. Zum Festziehen Drehmomentschlüssel verwenden. Drehmomentschlüssel nicht über den Auslösepunkt (\enquote{Knack}) weiterdrehen und nach Verwendung wieder auf Minimum zurückstellen.
 \end{itemize}
 	\item Werkzeugwechsel (\knopf{User} $\rightarrow$ \knopf{Werkzeugwechsel})
 \begin{itemize}
@@ -317,11 +317,11 @@ Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll
 
 \subsection{Auftrag starten}
 \begin{enumerate}
- \item Deckenlüftung (Absaugung) an
+ \item Deckenlüftung (Absaugung) geht automatisch an
  \item Kühlaggregat an
  \item Spindel muss vorgeheizt sein, sonst User-Button \knopf{Spindel vorheizen} betätigen.\\ 
-Damit die Spannmutter nicht herausfallen kann, beim Vorheizen entweder einen Fräser fest einspannen oder Spannmutter und Spannzange entnehmen.
-Während des Vorheizens müssen die Türen geschlossen bleiben. % TODO bei neuer Spindel mit automatischem Wkzw. müssen wir immer einen Werkzeughalter drinhaben.
+Beim Vorheizen muss immer ein Werkzeughalter in die Spindel eingesetzt sein. Außerdem muss dabei, damit die Spannmutter nicht herausfallen kann, entweder einen Fräser fest einsgespannt oder Spannmutter und Spannzange entnommen sein.
+Während des Vorheizens müssen die Türen geschlossen bleiben.
  \item Kühlung an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es den Boost-Taster. \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen wieviel Tropfen hängenbleiben) 
  \item Start drücken - Maschine fährt los.
  \item Beobachten, anfangs immer einen Finger nahe bei der F4-Taste haben, ggf. den Vorschub beim ersten Eintauchen runterstellen (\knopf{F-} im Automatik-Menü)
@@ -349,7 +349,7 @@ Es geht nur ein Werkzeug pro Datei. Neue Datei laden, Werkzeugwechsel wie oben b
 \begin{center}
 \begin{tikzpicture}[node distance=4.5cm,auto]
 \colorlet{dunkelrot}{red!50!black}
-\tikzstyle{zustand}=[shape=circle,draw,text width=1.5cm,text centered,thick,drop shadow,font=\it]; 
+\tikzstyle{zustand}=[shape=circle,draw,text width=1.5cm,text centered,thick,drop shadow,font=\itshape]; 
 \tikzstyle{pf}=[->,very thick,every node/.style={anchor=south,text centered}]
 \tikzstyle{pfHinRueck}=[pf,<->]
 
@@ -373,7 +373,7 @@ Es geht nur ein Werkzeug pro Datei. Neue Datei laden, Werkzeugwechsel wie oben b
 \draw[pf,bend left=10] (pause) to node[anchor=north] {manuell fahren} (pauseVerschoben) ;
 \draw[pf,bend left=10] (pauseVerschoben) to node {\textbf{Resync}} (pause);
 
-\draw[pf,dunkelrot] (aktiv) to node[right,text width=5em] {Tür auf /\\Notaus} (notaus);
+\draw[pf,dunkelrot] (aktiv) to node[right,text width=5em] {Tür auf /\\Not-Aus} (notaus);
 
 \tikzstyle{unwichtig}=[color=black!60!white,thick]
 \draw[pf,unwichtig] (notaus) to  node[sloped] {Reset} (ruhe);
