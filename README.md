@@ -7,6 +7,7 @@ Die neueste Version aus [github](https://github.com/fau-fablab/fraese-einweisung
 
 - [Einweisung](https://brain.fablab.fau.de/build/fraese-einweisung/Einweisung_Fraese.pdf)
 - [Einweisungsliste](https://brain.fablab.fau.de/build/fraese-einweisung/Einweisungsliste_Fraese.pdf)
+- [Wartungsplan](https://brain.fablab.fau.de/build/fraese-einweisung/Fraese_Wartungsplan.pdf)
 
 auschecken
 ----------
