@@ -1,8 +1,9 @@
 .PHONY: everything
-everything: Fraese_Wartungsplan.pdf all 
+everything: all Fraese_Wartungsplan.pdf 
+
 # OpenOffice-Zeugs
 Fraese_Wartungsplan.pdf: Fraese_Wartungsplan.fods
-	libreoffice --headless --invisible --convert-to pdf "Fraese_Wartungsplan.fods"
+	libreoffice --headless --invisible --convert-to pdf "Fraese_Wartungsplan.fods" && cp Fraese_Wartungsplan.pdf output/
 
 # "all" baut alle TeX-Dateien mit dem Makefile aus der Vorlage
 TARGET=Einweisung_Fraese Einweisungsliste_Fraese
