@@ -174,7 +174,7 @@ An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}
 \subsection{monatlich}
 
 \begin{itemize}
-	\item Kühlwasserstand Kühlgerät prüfen, ob er zwischen roter und blauer Markierung ist, wenn das Gerät läuft.
+	\item Kühlwasserstand Kühlgerät prüfen, ob er über der roten Markierung ist, wenn das Gerät läuft. (Rot: Minimum, Blau: Halbvoll, das Maximum ist im Gerät am Tank gekennzeichnet.)
 	\item „Metaflux Moly-Spray 70.82“ gut schütteln (Feststoffanteil!)
 	\item Den Greifer in der Mitte der HSK-Aufnahme damit schmieren. Das Moly-Spray (graue Flüssigkeit) dazu in die 6 Lücken zwischen den Segmenten des Greifers aufbringen (\cref{fig:hsk-greifer}). 
 	\item Mehrmals HSK-Einsatz ein- und auswechseln, um Schmiermittel zu verteilen. Dabei Schmiermittel abputzen, das am Einsatz hängen bleibt.
@@ -183,7 +183,7 @@ An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}
 	\item Der Werkzeughalter darf beim Wechseln kein graues Schmiermittel mehr auf die Außenflächen bekommen. Sonst muss weiter geputzt werden.
 \end{itemize}
 
-\begin{figure}[hb]
+\begin{figure}[ht]
 \centering
 \includegraphics[height=6.4cm]{./img/hsk-aufnahme-segmente.jpg}
 \caption{Schmierung der HSK-Aufnahme am Greifer (Pfeile)}
@@ -194,15 +194,26 @@ An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}
 
 \begin{itemize}
 	\item Kabel und Schläuche auf festen Sitz und guten Zustand (Scheuerstellen?) prüfen.
-	\item Druckluftanzeigen kontrollieren (4 bzw. 6 bar)
-	\item Kondensatabscheider entleeren: von unten dagegendrücken, bis kurz Luft ausströmt
+	\item 2 Druckluftanzeigen kontrollieren: Diese sind am Druckluftverteiler rechts neben dem Schaltschrank. Links (hinter dem Alu-Tischpfosten) sollen 4 bar, rechts 6 bar angezeigt werden.
+	\item 2 Kondensatabscheider entleeren: Der erste ist unterhalb der 6-bar-Druckanzeige des Minderers. Unten draufdrücken, bis kurz Luft (und ggf. eine Kleinstmenge Flüssigkeit) ausströmt. Der zweite ist rechts daneben und hat unten einen blauen Schraubnippel. Diesen etwas aufschrauben bis kurz Luft ausströmt.
 	\item Kabelketten kontrollieren und ggf. reinigen
-	\item Not-Aus und alle 3 Türschalter auf Funktion prüfen
-	\item Filter am Kühlgerät prüfen und ggf. reinigen
-	\item Lüfter der Steuerung absaugen
+	\item Not-Aus und alle 3 Türschalter auf Funktion prüfen. Dazu folgendes testen: 
+	\begin{enumerate}
+		\item Wenn der Not-Aus gedrückt ist, prüfen dass man von Hand am PC nicht die Fräse verfahren kann (und auch sonst nichts geht).
+		\item Not-Aus lösen, Reset drücken. Prüfen dass es jetzt wieder geht.
+		\item Nun die Türschalter testen: Ein harmloses Fräsprogramm einrichten, so dass es in der Luft fräst. Rechte Türe öffnen, übrige Türen schließen. Programm starten (\knopf{Auto} $\rightarrow$ \knopf{Start}). Prüfen, dass Fehlermeldung kommt und man nicht starten kann.
+		\item Ebenso jeweils für die mittlere und linke Türe prüfen.
+		\item Alle Türen schließen und prüfen dass man jetzt starten kann (um Fehler im Testablauf auszuschließen). 
+	\end{enumerate}
+	\item Staub aus dem Kühlgerät entfernen (aussaugen, ggf. ausblasen)
+	\item Lüfter der Steuerung absaugen, bei Bedarf Lüfterfilter tauschen (z.B. durch G3 Filtermatte für Badezimmer-Lüfter)
+	\item Vollständige Schmierung gemäß Handbuch BZT: Führungen und Kugelrollspindeln schmieren (Kap. 7.4-7.5)
+\end{itemize}
+
+\subsection{jährlich}
+\begin{itemize}
 	\item ggf. PC aussaugen
 	\item jährlich Kühlwasser tauschen (Korrosionsschutzmittel geht kaputt). Befüllung mit Wasser + Korrosionsschutzmittel gemäß Anleitung HSD Spindel.
-	\item Vollständige Schmierung gemäß Handbuch BZT: Führungen und Kugelrollspindeln schmieren (Kap. 7.4-7.5)
 \end{itemize}
 
 \subsection{Feierabend / nach Ende der Arbeiten}
@@ -232,7 +243,7 @@ Säubern:
 \begin{enumerate}
 	\item Herausfallende Stücke? Stege setzen, auch für kleinere Teile möglichst 3-4 Stück.\\Richtwert: Bei Alublech alle 50-100mm ein 2mm dicker und 2mm langer rechteckiger (nicht angeschrägter) Steg. Bei Weichholz 3mm lang, 4mm dick. Je nach Fräserdicke und Material muss das angepasst werden.\\
 VCarve: Wenn tiefer gefräst wird als das Material, muss die Stegdicke entsprechend erhöht werden, denn diese bezieht sich immer auf den untersten Punkt der Fräsung. Vorsicht auch bei unebenem Material.
-	\item VCarve: Starttiefe=0, wenn nicht vorher mindestens so tief ausgefräst (Reihenfolge!)\\
+	\item VCarve: Starttiefe=0, außer wenn vorher mindestens so tief ausgefräst (Reihenfolge!)\\
 Für besondere Vorsicht (unebenes Material) kann Starttiefe auch negativ sein.
 	\item Erlaubte Frästiefe beachten: Ein Fräser darf meist nicht so tief eintauchen wie er lang ist, weil der Schaft etwas größer ist als die Schneiden. Die erlaubte Tiefe steht im Artikelnamen in der Preisliste oder im Datenblatt (nutzbare Schneidenlänge bzw. Freistellungslänge).
 Bei Schaum u.\,ä.\  kann ein gleich dicker Schaft auch ausreichend sein) \\
