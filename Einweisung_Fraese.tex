@@ -213,8 +213,29 @@ An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}
 \subsection{jährlich}
 \begin{itemize}
 	\item ggf. PC aussaugen
-	\item jährlich Kühlwasser tauschen (Korrosionsschutzmittel geht kaputt). Befüllung mit Wasser + Korrosionsschutzmittel gemäß Anleitung HSD Spindel.
+	\item jährlich Kühlwasser tauschen (Algenbildung, Korrosionsschutzmittel geht kaputt).
 \end{itemize}
+
+\subsection{Kühlwassertausch}
+Für die HSD Spindel wird als Kühlmittel Wasser mit Korrosionsschutz (10 Prozent Monoethylenglykol plus Additive) verwendet. Nötige Menge etwa 11 Liter. Es besteht quasi keine Möglichkeit, zu erkennen ob die zum Korrosionsschutz nötigen Additive verbraucht sind, daher muss es auf Verdacht getauscht werden. Der pH-Wert ist nicht aussagekräftig!
+
+Offiziell wird in der Anleitung des IDEA Kühlgeräts (liegt auf fablab-data) die gebrauchsfertige Mischung (darf nicht weiter verdünnt werden) ARTIC FLU-5 genannt. Die gleiche Norm wird durch 1,5 Liter Glysantin G30 (Konzentrat), aufgefüllt mit Wasser, erfüllt, welches zur Zeit verwendet wird (erkennbar an der rosa Färbung im Tank). Beide Produkte sind nicht kompatibel, d.h. beim Wechsel zum anderem Produkt müss zunächst gründlichst das System mit normalem Wasser durchgespült werden. Das ist aber ohnehin sinnvoll. Reinigungsmittel oder sonstige Zusätze dürfen nicht verwendet werden, da unklar ist ob alle Materialien und Dichtungen dagegen beständig sind.
+
+Vorne am Kühlgerät ist ein Zulauf- und Ablaufstutzen (letzterer ist näher an OUT) mit Verschlusskappe und entsprechendem Hahn angebracht. Die Hähne unterbrechen den Kreislauf und leiten auf die Stutzen um. Somit kann man Wasser abpumpen und später auch nachfüllen.
+
+\paragraph{Vorbereitung} Kühlgerät ausschalten. Am Ablaufstutzen einen Schlauch anbringen. Zulaufstutzen mit Verschlusskappe schließen. Beide Hähne um 90 Grad drehen, damit sie in nicht-normaler Stellung stehen. Ablaufstutzen mit Schlauch versehen.
+
+\paragraph{Abpumpen} Deckel des Kühlgeräts und anschließend Deckel des innenliegenden Tanks demontieren, um später den Tank auf Algen zu prüfen und ggf. zu reinigen. Kühlgerät anschalten, um Wasser abzupumpen. Durch vorsichtiges zur Seite kippen des Kühlgeräts kann auch der Rest abgepumpt werden. Gerät ausschalten sobald Pumpe leerläuft.
+
+Entsorgung der alten Füllung als \enquote{Kühlerfrostschutzmittel mit Korrosionsschutz, verdünnt}. 
+
+\paragraph{Spülen} Zum Spülen Frischwasser über Schlauch an Zulaufstutzen anschließen, während des Anschließens den Hahn noch geschlossen halten. Der Tank füllt sich nun mit Frischwasser, schaltet man das Gerät an wird Wasser abgepumpt. Dieses Spülwasser kann man in die Kanalisation (Waschbecken) abpumpen. Die Frischwasserzufuhr muss man ab und zu ausschalten, damit der Tank nicht überläuft. Tank putzen, ggf. Algen mit Handschuh abfischen. Dabei beachten, dass die Kupferrohre des Kühlkreislaufs nicht beschädigt werden dürfen.  So lange spülen, bis keine Algen oder Flusen mehr im Tank zu sehen sind. Es kann helfen, zwischendurch den Zulaufschlauch direkt oben in den Tank zu halten, um gezielt einzelne Stellen zu spülen.
+
+\paragraph{Abpumpen beenden} Hähne in Normalstellung bewegen. Es darf jetzt kein Wasser mehr hinein oder hinaus fließen, wenn das Gerät an ist. Stutzen verschließen.
+
+\paragraph{Korrosionsschutz einfüllen} Das Wasser muss größtenteils abgepumpt sein. Nun die oben genannten 1,5 Liter Glysantin G30 einfüllen und mit Wasser (z.B. mit Schlauch direkt oben in den Tank füllen) bis knapp unter den blauen Strich auffüllen.
+
+\paragraph{Gerät verschließen} Alle Deckel wieder befestigen. Fertig.
 
 \subsection{Feierabend / nach Ende der Arbeiten}
 
@@ -264,7 +285,7 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 \end{itemize}
 	\item Rohling abmessen, mit CAM vergleichen
  \begin{enumerate}
-	\item Z: CAM-Maß mindestens 1mm kleiner als Rohmaterial \\
+	\item Z: Materialhöhe richtig, Frästiefe mindestens 1mm kleiner als Rohmaterial \\
         oder mit Durchfräsunterlage: CAM-Maß gleich Rohmaterial, Fräsung \enquote{ins negative}\\
         Fräsungen näher als 2mm am Tisch werden von der Steuerung sowieso verboten, wenn die Werkzeuglänge korrekt eingemessen wurde
 	\item X/Y: CAM-Maß $\leq$ Rohmaterial (Sicherheitsabstand je nach Spannmittel. Durchmesser der Spindelmutter beachten!)
@@ -494,12 +515,14 @@ Die Lebensdauer des Fräsers und Qualität des Ergebnisses hängt stark davon ab
 	\item Übliche Werte für den Vorschub sind 350 (langsam) bis 3000 mm/min (echt schnell). Mehr als 3000 mm/min kann die Maschine nicht.
 	\item Die Tabellenwerte gelten für ideale Aufspannung, z.B. ein mit Schraubstock oder Spannpratzen festgezogenes Stück 10mm dickes Aluminium. Auch sollte der Fräserschaft nicht unnötig weit aus dem Spannfutter herausragen. Bei schlechter Aufspannung bzw. dünnem Material kann die Eintauchtiefe auf $D/2$ reduziert werden. Auch kann der Vorschub halbiert werden, wobei das nicht unbedingt besser für den Fräser ist. Bei viel zu geringem Vorschub reibt der Fräser nur noch, weil kein sauberer Span zustandekommt.
 
-		Die Qualität einer Aufspannung prüft man am Besten am Klang durch Daraufklopfen mit dem Finger oder Schraubenschlüssel. Je weicher die Aufspannung ist, umso deutlicher merkt man einen Unterschied zwischen dem festgespannten Rand und der Mitte des Materials. Bei guter Aufspannung sollte sich außerdem nichts bewegen, wenn man etwas drückt oder zieht.
+		Die Qualität einer Aufspannung prüft man am Besten am Klang durch Daraufklopfen mit dem Finger oder Schraubenschlüssel. Je weicher die Aufspannung ist, umso deutlicher merkt man einen Unterschied zwischen dem festgespannten Rand und der Mitte des Materials. Bei guter Aufspannung sollte sich außerdem nichts bewegen, wenn man etwas drückt oder zieht. Bei dünnem Blech kann die Aufspannung nicht beliebig gut sein, weil man ab einer gewissen Andruckkraft das Blech verbiegt und zerquetscht.
+		
+		Einen groben Anhaltspunkt für den Vorschub liefert das Aussehen der Späne. Sie sollten beim Fräsen weder haarfein sein (zuviel Vorschub) noch grobe Brocken oder gar lange Bänder (zuwenig Vorschub).
 \end{enumerate}
 
 Die so gewonnenen Werte speichern wir unter Nutfräsen ab. Dazu sollte immer eine Beschreibung kommen, ob und wann und an was genau sie getestet wurden. Diese Werte werden auch für das Taschenfräsen verwendet, wobei man als seitliche Zustellung zwischen den Fräserbahnen 40\% der Fräserbreite angeben sollte.
 
-\paragraph{Holz} Für Holz benötigt man extrem hohe Schnittgeschwindigkeiten und daher eine hohe Drehzahl: Solange der Fräser dafür zugelassen ist (Aufdruck oder Datenblatt), 18.000 rpm bis etwa 8 mm Durchmesser. Vorschub mit 1000 mm/min anfangen und solange erhöhen, bis das Holz zerfetzt wird oder andere Probleme auftreten.
+\paragraph{Holz} Für Holz benötigt man extrem hohe Schnittgeschwindigkeiten und daher eine hohe Drehzahl: Solange der Fräser dafür zugelassen ist (Aufdruck oder Datenblatt), 18.000 rpm bis etwa 8 mm Durchmesser. Vorschub mit 1000 mm/min anfangen (ab etwa 4mm Durchmesser) und solange erhöhen, bis das Holz zerfetzt wird oder andere Probleme auftreten. Wenn die Ränder der Fräsbahn verkohlen, ist der Vorschub zu gering, oder der Fräser stumpf geworden.
 
 
 \ccLicense{fraese-einweisung}{Einweisung Fräse}
