@@ -315,24 +315,35 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 \end{itemize}
 	\item Werkzeugwechsel (\knopf{User} $\rightarrow$ \knopf{Werkzeugwechsel})
 \begin{itemize}
+	\item \knopf{OK}, neue Werkzeugnummer eingeben, \knopf{OK}
+	\item Weitere Dialoge durchgehen. Dabei muss beachtet werden: 
+	\begin{enumerate}
+		\item Die Werkzeugnummer 0 bedeutet \enquote{kein Werkzeug}
+		\item Der Werkzeugdurchmesser darf nicht Null sein
+		\item Dezimalbrüche werden mit Punkt statt Komma eingegeben!
+		\item Nachdem in der kleinen Konsole eine Ausgabe beginnend mit \enquote{Action...} kommt, die Tür schließen und mit STRG-G bestätigen
+	\end{enumerate}
 	\item Bisherigen Werkzeughalter auswerfen: Diesen festhalten, damit er dabei nicht herunterfällt. Grünen Taster an Spindel gedrückt halten, Halter entnehmen.
 	\item (Für Wartungszwecke kann man hier kurz pausieren und die Wartung durchführen)
 	\item Neuer Halter und Gegenstück an der Spindel muss sauber sein (Kegel und Planfläche)!
 	\item Neuen Halter einsetzen, dazu wieder Taster gedrückt halten, Halter bis ganz oben einschieben, Taster loslassen
 	\item Sicherstellen, dass am Schaltschrank die Lampe Werkzeug OK (grün) leuchtet. Sonst nochmal auswechseln.
 	\item Wenn kein Fräser eingesetzt ist, kann man an dieser Stelle \knopf{Abbrechen}. Die folgenden Punkte dann nicht durchführen.
-	\item \knopf{OK}, Werkzeugnummer eingeben, \knopf{OK}
-	\item Jetzt unbedingt \knopf{Reset} drücken, nichts anderes!
+	\item Maschinentüre schließen
+	\item STRG-G drücken um den Vorgang abzuschließen
 \end{itemize}
-	\item Werkzeuglänge messen  (\knopf{User} $\rightarrow$ \knopf{Wkz.länge})
+	\item Wenn noch nicht geschehen, Werkzeuglänge messen  (\knopf{User} $\rightarrow$ \knopf{Wkz.länge})
 \end{enumerate}
+
+\subsection{Der 3D-Taster}
+wie man den 3D-Taster verwendet... 
+von PhilippH und AlexanderS
 
 \subsection{Einrichten Teil 2/2}
 \begin{enumerate}
 	\item \textbf{Vor} dem Antasten muss die Werkzeuglänge gemessen werden
 	\item Nullpunkt setzen Z,X,Y, \emph{nachdem} die Werkzeuglänge gemessen wurde. Den Z-Null zu vergessen ist besonders riskant.\\
 Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll, muss dieser mit Punkt statt Komma eingegeben werden, sonst wird er falsch angenommen!
- % \todo{Todo: wie per Kantentaster? Ein-/Ausbau Kantentaster...   wie ohne? ...  $\rightarrow$ in Extra Abschnitt erklären}
 \end{enumerate}
 
 \subsection{Datencheck}
