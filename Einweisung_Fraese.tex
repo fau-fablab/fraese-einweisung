@@ -337,7 +337,6 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 	\item Sicherstellen, dass am Schaltschrank die Lampe Werkzeug OK (grün) leuchtet. Sonst nochmal auswechseln.
 	\item Wenn kein Fräser eingesetzt ist, kann man an dieser Stelle \knopf{Abbrechen}. Die folgenden Punkte dann nicht durchführen.
 	\item Maschinentüre schließen und mit OK bestätigen.
-	\item Wenn dazu aufgefordert wird (unten im Fenster), STRG-G drücken um den Vorgang abzuschließen
 \end{enumerate}
 	\item Werkzeuglänge messen  (der Abfrage folgen bzw. \knopf{User} $\rightarrow$ \knopf{Wkz.länge}). Diesen Schritt zu überspringen ist gefährlich, ihn unnötig zu wiederholen schadet nicht.
 \end{enumerate}
@@ -375,14 +374,17 @@ Beim Vorheizen muss immer ein Werkzeughalter in die Spindel eingesetzt sein. Au�
 Während des Vorheizens müssen die Türen geschlossen bleiben.
  \item Wenn benötigt (Metall) KSS an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es den Boost-Taster. \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen wieviel Tropfen hängenbleiben) 
  \item Start drücken - Maschine fährt los.
+ \item Es muss eine Meldung \enquote{Werkzeug bereits geladen, trotzdem wechseln?} kommen. Diese mit Nein beantworten und die Info \enquote{Es wurde nicht gewechselt} bestätigen. 
+ 
+ Wenn stattdessen ein Dialog mit alter und neuer Werkzeugnummer kommt, dann sofort abbrechen und den kompletten Einrichtvorgang (Werkzeug wechseln, Länge, Z-Null) wiederholen.
  \item Beobachten, anfangs immer einen Finger nahe bei der F4-Taste haben, ggf. den Vorschub beim ersten Eintauchen runterstellen (\knopf{F-} im Automatik-Menü)
  \item Mit Druck auf \knopf{STOP} oder F4 hält die Maschine an und geht in Pause-Status (siehe \ref{resync})
 \end{enumerate}
 
 \subsection{Auftrag mit mehreren Werkzeugen}
-Es geht nur ein Werkzeug pro Datei. Neue Datei laden, Werkzeugwechsel und Längenmessung wie oben beschrieben, starten.
+Es geht nur ein Werkzeug pro Datei. Neue Datei laden, Werkzeugwechsel und Längenmessung ausführen wie oben beschrieben, dann starten.
 
-\emph{Mehrere Werkzeuge pro Datei sind nicht erlaubt, weil es damit noch bekannte Probleme und Gefahren gibt, insb. verwirrende Meldungen und die Gefahr dass die falsche Werkzeuglänge genutzt wird.}
+\emph{Mehrere Werkzeuge pro Datei sind nicht erlaubt, weil es damit noch bekannte Probleme und Gefahren gibt, insb. verwirrende Meldungen und die Gefahr dass die falsche Werkzeuglänge genutzt wird. Für weitere Infos melde dich bei Max.}
 
 %  Wenn die Maschine anzeigt: Bitte Werkzeug x einlegen und an die Werkzeugwechselposition gefahren ist:
 %  \begin{enumerate}
