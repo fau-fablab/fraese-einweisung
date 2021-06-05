@@ -374,9 +374,6 @@ Beim Vorheizen muss immer ein Werkzeughalter in die Spindel eingesetzt sein. Au�
 Während des Vorheizens müssen die Türen geschlossen bleiben.
  \item Wenn benötigt (Metall) KSS an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es den Boost-Taster. \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen wieviel Tropfen hängenbleiben) 
  \item Start drücken - Maschine fährt los.
- \item Es muss eine Meldung \enquote{Werkzeug bereits geladen, trotzdem wechseln?} kommen. Diese mit Nein beantworten und die Info \enquote{Es wurde nicht gewechselt} bestätigen. 
- 
- Wenn stattdessen ein Dialog mit alter und neuer Werkzeugnummer kommt, dann sofort abbrechen und den kompletten Einrichtvorgang (Werkzeug wechseln, Länge, Z-Null) wiederholen.
  \item Beobachten, anfangs immer einen Finger nahe bei der F4-Taste haben, ggf. den Vorschub beim ersten Eintauchen runterstellen (\knopf{F-} im Automatik-Menü)
  \item Mit Druck auf \knopf{STOP} oder F4 hält die Maschine an und geht in Pause-Status (siehe \ref{resync})
 \end{enumerate}
@@ -467,6 +464,9 @@ Die sinnvolle Reihenfolge beim Bedienen ist:
 
 
 \section{Fehlerbehebung}
+
+\subsection{Werkzeugwechsel während Job wird nicht unterstützt}
+Wenn ein Fehler \enquote{Werkzeugwechsel während Job wird nicht unterstützt.} kommt, dann passt die aktuell geladene Werkzeugnummer nicht zur vom Programm erwarteten Werkzeugnummer. Abhilfe: Reset und den kompletten Einrichtvorgang (Werkzeug wechseln, Länge, Z-Null) mit der korrekten Werkzeugnummer wiederholen.
 
 \subsection{Notaus löst aus}
 Eine Schutzabschaltung kann u.\,a. folgende Gründe haben:
