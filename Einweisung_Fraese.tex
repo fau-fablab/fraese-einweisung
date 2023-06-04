@@ -347,6 +347,7 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 	Der Knopf \enquote{Abbrechen} ist nur für den Sonderfall, dass man etwas falsch gemacht hat und nochmal von vorne anfangen will. Früher (vor Mai 2023) war das anders.
 \end{enumerate}
 	\item Wenn ein Fräser eingespannt ist: Werkzeuglänge messen  (der Abfrage folgen bzw. \knopf{User} $\rightarrow$ \knopf{Wkz.länge}). Diesen Schritt zu überspringen ist gefährlich, ihn unnötig zu wiederholen schadet nicht.
+	\item Wenn das Programm nach dem Werkzeugdurchmesser fragt, muss dieser mit Punkt statt Komma eingegeben werden (richtig z.\,B. \texttt{4.5}).
 \end{enumerate}
 
 \subsection{Der 3D-Taster}
@@ -528,6 +529,11 @@ Eine der drei Türen ist nicht vollständig geschlossen.
 
 \subsection{Fehlermeldung: Offset Index fehlt}
 Erst das Werkzeug einwechseln und dann den Job laden. Der Fehler erscheint wenn man die Reihenfolge nicht einhält.
+
+\subsection{Fehlermeldung: Werkzeugdurchmesser mit kleiner gleich 0 ist nicht erlaubt}
+Es wurde kein Werkzeugdurchmesser oder ein ungültiger Wert eingegeben. Bitte mit Punkt statt Komma eingeben.
+
+Null ist nicht erlaubt. Verwende für Gravierstichel und ähnliche spitze Werkzeuge den gleichen Nenndurchmesser (oft der Schaftdurchmesser) so wie er auch zur Datenerstellung in VCarve/Autodesk/... verwendet wurde. Der Wert ist egal wenn das Fräsprogramm nur \enquote{mittige} Werkzeugpfade ohne Radiuskorrektur enthält, also nur nur G40, aber nicht G41/G42 enthält. In diesem Fall darfst du irgendeinen Ersatzwert größer null eingeben.
 
 \section{Grundlagen}
 \todo{ein kurzer Abschnitt über die nötigen Daten, und Begriffe erklären. Planfräsen, Nutfräsen, Stege,...}
