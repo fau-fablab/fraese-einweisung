@@ -1,0 +1,15 @@
+name: PDF bauen
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pdf:
+    uses: fau-fablab/fablab-document/.github/workflows/pdf.yml@master
+    permissions:
+      contents: write
+    # LibreOffice für den Wartungsplan (Fraese_Wartungsplan.fods -> PDF)
+    with:
+      pakete: libreoffice-calc-nogui
