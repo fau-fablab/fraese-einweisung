@@ -2,6 +2,7 @@
 /*.pdf
 output/
 revision.tex
+version.tex
 *~
 *.backup
 
