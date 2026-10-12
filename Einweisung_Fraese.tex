@@ -439,14 +439,14 @@ Es geht nur ein Werkzeug pro Datei. Neue Datei laden, Werkzeugwechsel und Länge
 
 %  Wenn die Maschine anzeigt: Bitte Werkzeug x einlegen und an die Werkzeugwechselposition gefahren ist:
 %  \begin{enumerate}
-%   \item Z-Achse nach oben fahren und evtl. nach Vorne, dass man gescheit drankommt.
+%   \item Z-Achse nach oben fahren und evtl. nach vorne, dass man gescheit drankommt.
 %   \item Alten Fräser ausspannen (bei großem Fräser den Fräser festhalten, da er sonst rausfallen kann!)
 %   \item ggf. Spannzange wechseln, dabei auf richtige Größe der Spannzange achten!
 %   \item neuen Fräser einspannen (fest!)
 %   \item Kühlmittelstrahlen kontrollieren
 % 	\item Werkzeuglängenmesser von Spänen befreien.
-%   \item optional Türen schließen (Wenn die Tür während des Werkzeuglängemessens geöffnet wird, geht die Maschine in den Notaus-Modus, dann ist kein Fortsetzen des Fräsjobs möglich!)
-%   \item an der Steuersoftware: ins User-Menü gehen, Symbol \enquote{Werkzeuglängenmessung} anklicken und abwarten bis fertig
+%   \item optional Türen schließen (Wenn die Tür während des Werkzeuglängenmessens geöffnet wird, geht die Maschine in den Notaus-Modus, dann ist kein Fortsetzen des Fräsjobs möglich!)
+%   \item an der Steuersoftware: ins User-Menü gehen, Symbol \enquote{Werkzeuglängenmessung} anklicken und abwarten, bis fertig
 %   \item an der Steuersoftware: ins Automatik-Menü gehen, Kühlung an, Start klicken
 %  \end{enumerate}
  
@@ -541,7 +541,7 @@ Der Umrichter hat zwei Profile, die in unterschiedlichen Drehzahlbereichen ideal
 	\item Profil 1: 0 bis 18000 rpm, im unteren Bereich nicht volles Drehmoment möglich. 
 	\item Profil 2: 0 bis ca. 15000 rpm, darüber steigt der Umrichter aus. Volles Drehmoment bis 12000 rpm.
 \end{itemize}
-In über 90\% aller Fälle reicht Profil 1 aus, auch z.B. für 10mm Fräser ZOX Vollnut in Aluminium (getestet). Für den Fall, dass das drehmomenterhöhte Profil im Umrichter geladen und dann verwendet wurde, ist es \textbf{AUF JEDEN FALL} nach der Arbeit wieder auf Profil 1 zurückzustellen. Vor der Arbeit ist zu kontrollieren, dass im Umrichterdisplay oben rechts \enquote{1(1)} steht, da dies auf Profil 1 hinweist.
+In über 90\% aller Fälle reicht Profil 1 aus, auch z.B. für 10-mm-Fräser ZOX Vollnut in Aluminium (getestet). Für den Fall, dass das drehmomenterhöhte Profil im Umrichter geladen und dann verwendet wurde, ist es \textbf{AUF JEDEN FALL} nach der Arbeit wieder auf Profil 1 zurückzustellen. Vor der Arbeit ist zu kontrollieren, dass im Umrichterdisplay oben rechts \enquote{1(1)} steht, da dies auf Profil 1 hinweist.
 
 Hintergrund:\\
 Der Umrichter will den Motor nur bis leicht über den Anfang der Feldschwächung betreiben, der bei unserer Spindel bei 12000 rpm beginnt. Daher wird dem Umrichter im Profil 1 für höhere Drehzahlen vorgegaukelt, dass die Feldschwächung erst bei 24000 rpm anfängt. Damit steuert der Umrichter den Motor auf zu geringer Spannung, aber korrekter Frequenz. So ist zwar das Drehmoment, welches eine Funktion des Stromes ist, nicht maximal möglich, aber die Drehzahl sehr wohl. Theoretisch wären so 24000 rpm möglich, die Drehzahl wurde aber wegen Schwierigkeiten mit der Umrichter-Regelung auf 18.000 rpm begrenzt.
