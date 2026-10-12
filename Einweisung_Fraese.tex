@@ -16,6 +16,9 @@
 \usepackage{wrapfig} % Textumlauf um Bilder
 \usepackage[ngerman]{cleveref} % einfachere Referenzierung: \cref{foo} erzeugt z.B. "Kapitel 7" oder "Abbildung 5" je nach Typ der Referenz
 \renewcommand{\texteuro}{\euro}
+\captionsetup[figure]{name=Abb.}
+\crefname{figure}{Abb.}{Abb.}
+\Crefname{figure}{Abb.}{Abb.}
 
 \linespread{1.2}
 
@@ -42,6 +45,7 @@
 \renewcommand{\todo}[1]{\colorbox{yellow}{{#1}}}
 
 \usetikzlibrary{shadows}
+\usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations}
 \begin{document}
 \maketitle
@@ -55,33 +59,70 @@ Ohne eine unterschriebene Grund-Einweisung in diese Regeln darf die Fräse nicht
  %\item Die Bedienung der Steuersoftware (Antasten, Starten, Fortsetzen nach Pause, ...) darf nur durch den Experten bzw. unter ständiger Aufsicht durch den Experten erfolgen.
 \end{itemize}
 \colorlet{blockhintergrund}{blue!50!gray}
-\tikzstyle{lernstufe} = [rectangle, draw, thick, top color=blockhintergrund!10,bottom color=blockhintergrund!30, draw=blockhintergrund!70!black,
-    text width=16em, text centered, rounded corners, minimum height=4em, drop shadow]
-\tikzstyle{pfeilLernen} = [draw,->, thick, every node/.style={text width=38em}]
-%\begin{figure}
-\vspace{1em}
-\begin{tikzpicture}[scale=0.8, node distance = 3cm, auto]
-\newcommand{\ueb}[1]{\textbf{#1}\\}
- \node[lernstufe] (0) {\ueb{Stufe 0: gar nichts} Fräse nicht anfassen, nur bestaunen :)};
- \node[lernstufe, below of = 0, node distance=3cm] (1) {\ueb{Stufe 1: Anfassen} Ein-/Ausspannen, Säubern.\\Nichts alleine an der Steuerung.};
- \node[lernstufe, below of = 1, node distance=4.7cm] (2) {\ueb{Stufe 2: Handbetrieb}  Manuelles Verfahren, Einrichten.\\Nicht starten oder wieder fortsetzen.};
-\node[lernstufe, below of = 2, node distance=7.2cm] (3) {\ueb{Fräsenbetreuer: Alles} auch Starten, Freigabe,\\ Einweisung anderer Nutzer};
-\path[pfeilLernen] (0) -- node {Arbeitssicherheit und Ordnung (Kapitel \ref{regeln} Regeln und Hinweise)\\Grund-Einweisung mit Unterschrift} (1);
-\path[pfeilLernen] (1) -- node {Benutzung der Spannmittel üben: Pratzen, Schraubstock\\
-Einrichten unter Aufsicht erlernen:  Handbedienung, Nullpunkt, Spannzange, Werkzeugwechsel,
-Absaugvorrichtung, Längenmessung, Spindel vorheizen, Kühlmittel,  Prüfen vor dem Start, ...\\[0.5em]
-	Einweisung mit Unterschrift, sobald Einrichten sicher beherrscht} (2);
-\path[pfeilLernen] (2) -- node {Bezahlung, NC-Programm erstellen, Auswahl der Fräser, Verständnis der Zerspanung (u.a. Gleichlauf/Gegenlauf, Belastung beim Nutfräsen, Schnittdaten, Fräserliste, Datenblatt)\\[0.5em]
-	Üben und Routine bekommen, Aufsicht ist weiterhin zum Start notwendig.\\[0.5em]
-	Einweisung vollständig verstanden haben und so sicher selbstständig arbeiten können,
-	dass die Aufsicht nicht mehr helfen oder eingreifen muss.\\[0.5em]
-	An verschiedenen Tagen mehrere verschiedenartige Werkstücke erfolgreich fräsen\\[0.5em]
-	Schriftliche Bestätigung durch Betreuer und Teilnehmer: \enquote{Führerschein}\\Herzlichen Glückwunsch, du bist jetzt auch Fräsenbetreuer!} (3);
+% kompakte Aufzählung für die Voraussetzungs-Kästen
+\newenvironment{vorausliste}{\begin{list}{\textbullet}{\leftmargin=1em \labelwidth=0.6em \labelsep=0.4em \itemsep=2pt \parsep=0pt \topsep=2pt \partopsep=0pt}}{\end{list}}
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}[
+    stufe/.style={rectangle, rounded corners=4pt, thick, draw=blockhintergrund!70!black,
+        top color=blockhintergrund!10, bottom color=blockhintergrund!30,
+        drop shadow, text width=6.2cm, align=center, inner sep=7pt},
+    voraus/.style={rectangle, rounded corners=3pt, draw=blockhintergrund!45, fill=blockhintergrund!5,
+        text width=10cm, align=left, inner sep=6pt, font=\small},
+    pfeil/.style={-{Latex[length=2.5mm]}, thick, draw=blockhintergrund!70!black},
+    verbinder/.style={thick, draw=blockhintergrund!45},
+    punkt/.style={circle, fill=blockhintergrund!70!black, inner sep=1.6pt},
+]
+  \newcommand{\vtitel}[1]{\textbf{\color{blockhintergrund!70!black}Voraussetzungen für #1}}
+
+  % Stufe 0
+  \node[stufe] (s0) {\textbf{Stufe 0: gar nichts}\\Fräse nicht anfassen, nur bestaunen :)};
+
+  % Voraussetzungen 0 -> 1
+  \node[voraus, anchor=north west] (v1) at ([xshift=0.8cm, yshift=-0.6cm]s0.south)
+    {\vtitel{Stufe 1}
+     \begin{vorausliste}
+       \item Arbeitssicherheit und Ordnung (Kapitel~\ref{regeln}, Regeln und Hinweise)
+       \item Grund-Einweisung mit Unterschrift
+     \end{vorausliste}};
+  \node[stufe, anchor=north] (s1) at ([yshift=-0.6cm]s0.south |- v1.south)
+    {\textbf{Stufe 1: Anfassen}\\Ein-/Ausspannen, Säubern.\\Nichts alleine an der Steuerung.};
+
+  % Voraussetzungen 1 -> 2
+  \node[voraus, anchor=north west] (v2) at ([xshift=0.8cm, yshift=-0.6cm]s1.south)
+    {\vtitel{Stufe 2}
+     \begin{vorausliste}
+       \item Benutzung der Spannmittel üben: Pratzen, Schraubstock
+       \item Einrichten unter Aufsicht erlernen: Handbedienung, Nullpunkt, Spannzange, Werkzeugwechsel, Absaugvorrichtung, Längenmessung, Spindel vorheizen, Kühlmittel, Prüfen vor dem Start, \ldots
+       \item Einweisung mit Unterschrift, sobald Einrichten sicher beherrscht
+     \end{vorausliste}};
+  \node[stufe, anchor=north] (s2) at ([yshift=-0.6cm]s1.south |- v2.south)
+    {\textbf{Stufe 2: Handbetrieb}\\Manuelles Verfahren, Einrichten.\\Nicht starten oder wieder fortsetzen.};
+
+  % Voraussetzungen 2 -> Fräsenbetreuer
+  \node[voraus, anchor=north west] (v3) at ([xshift=0.8cm, yshift=-0.6cm]s2.south)
+    {\vtitel{Fräsenbetreuer}
+     \begin{vorausliste}
+       \item Bezahlung, NC-Programm erstellen, Auswahl der Fräser, Verständnis der Zerspanung (u.\,a.\ Gleichlauf/Gegenlauf, Belastung beim Nutfräsen, Schnittdaten, Fräserliste, Datenblatt)
+       \item Üben und Routine bekommen, Aufsicht ist weiterhin zum Start notwendig.
+       \item Einweisung vollständig verstanden haben und so sicher selbstständig arbeiten können, dass die Aufsicht nicht mehr helfen oder eingreifen muss.
+       \item An verschiedenen Tagen mehrere verschiedenartige Werkstücke erfolgreich fräsen
+       \item Schriftliche Bestätigung durch Betreuer und Teilnehmer: \enquote{Führerschein}
+     \end{vorausliste}
+     \emph{Herzlichen Glückwunsch, du bist jetzt auch Fräsenbetreuer!}};
+  \node[stufe, anchor=north] (s3) at ([yshift=-0.6cm]s2.south |- v3.south)
+    {\textbf{Fräsenbetreuer: Alles}\\auch Starten, Freigabe,\\Einweisung anderer Nutzer};
+
+  % Pfeile zwischen den Stufen und Anbindung der Voraussetzungen
+  \foreach \von/\nach/\v in {s0/s1/v1, s1/s2/v2, s2/s3/v3} {
+    \draw[pfeil] (\von.south) -- (\nach.north);
+    \draw[verbinder] (\von.south |- \v.west) -- (\v.west);
+    \node[punkt] at (\von.south |- \v.west) {};
+  }
 \end{tikzpicture}
-% \vspace{-20em}
-% 
-%\pagebreak
-%\end{figure}
+\caption{Lernstufen: Was du in welcher Stufe darfst und was du für die nächste Stufe brauchst}
+\label{fig:lernstufen}
+\end{figure}
 
 
 \subsection{Handhabung}
@@ -90,8 +131,8 @@ Absaugvorrichtung, Längenmessung, Spindel vorheizen, Kühlmittel,  Prüfen vor 
  \item Mache dich mit den Schutzeinrichtungen und ihren Einschränkungen vertraut:
 \begin{itemize}
  \item Not-Aus an der Fräse: Funktioniert immer, die Spindel läuft aber noch \emph{bis zu zwei Minuten} nach.
- \item Türen mit Schutzschalter: Beim Öffnen der Türen wird das Programm angehalten, die Spindel läuft nach. Manuelles Verfahren, Spindel anschalten usw. ist aber weiterhin möglich.
- \item Begrenzungen in der Steuerung: Wenn die Werkzeuglänge korrekt gemessen wurde, versucht die Steuerung zu verhindern, dass man den Fräser in den Nutentisch rammt.
+ \item Türen mit Schutzschalter: Beim Öffnen der Türen wird das Programm angehalten, die Spindel läuft nach. Manuelles Verfahren, Spindel anschalten usw. sind aber weiterhin möglich.
+ \item Begrenzungen in der Steuerung: Wenn die Werkzeuglänge korrekt gemessen wurde, versucht die Steuerung, zu verhindern, dass man den Fräser in den Nutentisch rammt.
  \item Weil der PC sich aufhängen kann, sind die PC-Tasten kein Ersatz für den Not-Aus.
 \end{itemize}
 
@@ -118,7 +159,7 @@ Das Prozedere in diesem Fall ist kompliziert, deshalb in diesem Fall Maschine au
 	\item Beim Ausblasen für Augenschutz (Späne) und ggf.\  Gehörschutz sorgen. Ausblasen verteilt oft nur den Dreck, deshalb lieber kehren oder saugen. Es besteht die Gefahr, dass Dreck in abgedichtete Bereiche, z.\,B.\  unten bei der Spindel, gepresst wird.
 	\item Während jemand an der offenen Fräse ist, bedient kein anderer den PC. Zum manuellen Verfahren beim Antasten die Tastatur mitnehmen und es selber machen!
 	\item Spindel und Nebelkühlung auslassen, solange die Maschine offen ist!
-	\item Ausnahme Kühlung: beim Justieren der Kühlmittelstrahlen auf den Fräser darf die Kühlung natürlich an sein.
+	\item Ausnahme Kühlung: Beim Justieren der Kühlmittelstrahlen auf den Fräser darf die Kühlung natürlich an sein.
 \end{itemize}
 	\item Bei der Verwendung von Materialien, die Staub erzeugen können, muss unbedingt abgesaugt werden! (unter anderem Hartholz, Graphit, Carbon, GFK, Platinenmaterial). Stein ist nicht zulässig, weil der Staub stark abrasiv ist. Für all diese Materialien ist der Festool-Absauger in Verbindung mit dem Zyklonabscheider vorn an der Maschine zu verwenden, da der Sauger für Feinstäube zugelassen ist. Es ist wichtig, den Staubsauger so stark einzustellen, dass kein Staub auf dem gefrästen Material liegen bleibt. Im Zweifel lieber etwas stärker einstellen. Hierbei \textbf{KEIN KSS} verwenden.
 	\item Die Deckenlüftung muss an sein, solange die Fräse in Benutzung ist, auch beim Warmlaufen.
@@ -138,13 +179,12 @@ Das Prozedere in diesem Fall ist kompliziert, deshalb in diesem Fall Maschine au
 \tableofcontents
 \newpage
 \section{Wartung, Vor- und Nachbereitung der Maschine}
-\begin{wrapfigure}{r}{6.5cm}
+\begin{figure}[htb]
 \centering
-\includegraphics[width=5cm]{./img/hsk-einsatz.jpg}
-\caption{HSK-Einsatz}
-rot markiert: Kegel- und Planfläche
+\includegraphics[height=6.4cm]{./img/hsk-einsatz.jpg}
+\caption{HSK-Einsatz: Kegel- und Planfläche (rot markiert)}
 \label{fig:hsk-einsatz}
-\end{wrapfigure}
+\end{figure}
 
 Kontrolliere die ausstehenden Arbeiten im Wartungsplan. Es spart Zeit, mit den selteneren Aufgaben zu beginnen.
 
@@ -163,15 +203,15 @@ Wenn zu viel auf einmal ansteht, dann darfst du die Wartung auf Folgendes einsch
 	\item alle verwendeten HSK-Einsätze mit Papiertuch säubern (Kegel- und Planfläche, siehe \cref{fig:hsk-einsatz})
 \end{enumerate}
 
-\begin{figure}[hb!]
+\begin{figure}[htb]
 \centering
 \includegraphics[height=6.4cm]{./img/hsk-aufnahme.jpg}
-\caption{Spindelnase von unten: Spindeldichtung mit Luftaustritt (gelb), \\HSK-Aufnahme mit Kegelfläche (rot) und Planfläche (blau)}
+\caption{Spindelnase von unten: Spindeldichtung mit Luftaustritt (gelb), HSK-Aufnahme mit Kegelfläche (rot) und Planfläche (blau)}
 \label{fig:hsk-aufnahme}
 \end{figure}
 
-\subsection{14tägig}
-An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}), sowie ggf. auch die Spannzange und den zugehörigen Kegel reinigen und pflegen: (Entfällt, wenn die Fräse in den letzten Wochen nicht genutzt wurde).
+\subsection{14-tägig}
+An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}) sowie ggf. auch die Spannzange und den zugehörigen Kegel reinigen und pflegen: (Entfällt, wenn die Fräse in den letzten Wochen nicht genutzt wurde).
 \begin{enumerate}
 	\item mit Spiritus und Papiertuch säubern, 
 	\item „Klüber Lusin Protect G31“ schütteln und Flächen damit kurz einsprühen, mit sauberem Papiertuch gleichmäßig verteilen. Ergebnis ist ein unsichtbar dünner Wachsfilm gegen Rost.
@@ -196,7 +236,7 @@ An allen HSK-Einsätzen die Kegel- und Planfläche (siehe \cref{fig:hsk-einsatz}
 	\end{enumerate}
 \end{enumerate}
 
-\begin{figure}[ht!]
+\begin{figure}[htb]
 \centering
 \includegraphics[height=6.4cm]{./img/hsk-aufnahme-segmente.jpg}
 \caption{Schmierung der HSK-Aufnahme am Greifer (Pfeile)}
@@ -235,13 +275,13 @@ Für die HSD-Spindel wird als Kühlmittel Wasser mit Korrosionsschutz (Monoethyl
 
 Befüllung:
 \begin{itemize}
-	\item Offiziell wird in der Anleitung des IDEA Kühlgeräts (liegt auf fablab-data) die gebrauchsfertige Mischung (darf nicht weiter verdünnt werden) ARTIC FLU-5 genannt. Diese hat eine Konzentration von 10 \%.
+	\item Offiziell wird in der Anleitung des IDEA-Kühlgeräts (liegt auf fablab-data) die gebrauchsfertige Mischung (darf nicht weiter verdünnt werden) ARTIC FLU-5 genannt. Diese hat eine Konzentration von 10 \%.
 	\item Die gleiche Norm wird durch 1,5 Liter Glysantin G30 (Konzentrat), aufgefüllt mit Wasser, erfüllt. Damit gab es nach 1 Jahr starke Algenbildung.
 	\item Aktuell (2021) sind 5 Liter Glysantin G30 Konzentrat mit 5-6 Litern Wasser gemischt, in der Hoffnung, dass das nicht so schnell Algen ansetzt.
 \end{itemize}
 Beide Produkte sind nicht kompatibel, d.h. beim Wechsel zum anderen Produkt muss zunächst gründlichst das System mit normalem Wasser durchgespült werden. Das ist aber ohnehin sinnvoll. Reinigungsmittel oder sonstige Zusätze dürfen nicht verwendet werden, da unklar ist, ob alle Materialien und Dichtungen dagegen beständig sind.
 
-Vorne am Kühlgerät ist ein Zulauf- und Ablaufstutzen (letzterer ist näher an OUT) mit Verschlusskappe und entsprechendem Hahn angebracht. Die Hähne unterbrechen den Kreislauf und leiten auf die Stutzen um. Somit kann man Wasser abpumpen und später auch nachfüllen.
+Vorne am Kühlgerät ist ein Zulauf- und Ablaufstutzen (Letzterer ist näher an OUT) mit Verschlusskappe und entsprechendem Hahn angebracht. Die Hähne unterbrechen den Kreislauf und leiten auf die Stutzen um. Somit kann man Wasser abpumpen und später auch nachfüllen.
 
 \paragraph{Vorbereitung} Kühlgerät ausschalten. Am Ablaufstutzen einen Schlauch anbringen. Zulaufstutzen mit Verschlusskappe schließen. Beide Hähne um 90 Grad drehen, damit sie in nicht-normaler Stellung stehen. Ablaufstutzen mit Schlauch versehen.
 
@@ -251,7 +291,7 @@ Entsorgung der alten Füllung als \enquote{Kühlerfrostschutzmittel mit Korrosio
 
 \paragraph{Spülen} Zum Spülen Frischwasser über Schlauch an Zulaufstutzen anschließen, während des Anschließens den Hahn noch geschlossen halten. Der Tank füllt sich nun mit Frischwasser, schaltet man das Gerät an, wird Wasser abgepumpt. Dieses Spülwasser kann man in die Kanalisation (Waschbecken) abpumpen. Die Frischwasserzufuhr muss man ab und zu ausschalten, damit der Tank nicht überläuft. Tank putzen, ggf. Algen mit Handschuh abfischen. Dabei beachten, dass die Kupferrohre des Kühlkreislaufs nicht beschädigt werden dürfen. So lange spülen, bis keine Algen oder Flusen mehr im Tank zu sehen sind. Es kann helfen, zwischendurch den Zulaufschlauch direkt oben in den Tank zu halten, um gezielt einzelne Stellen zu spülen.
 
-\paragraph{Abpumpen beenden} Hähne in Normalstellung bewegen. Es darf jetzt kein Wasser mehr hinein oder hinausfließen, wenn das Gerät an ist. Stutzen verschließen.
+\paragraph{Abpumpen beenden} Hähne in Normalstellung bewegen. Es darf jetzt kein Wasser mehr hinein- oder hinausfließen, wenn das Gerät an ist. Stutzen verschließen.
 
 \paragraph{Algenfilter reinigen} An der Spindel befindet sich ein Absperrhahn mit integriertem Filter. Hahn auf geschlossen stellen. Blindkappe unten am Absperrhahn aufschrauben, herauskommende Wassertropfen auffangen. Filtereinsatz mit Zange entnehmen. Filtereinsatz im Waschbecken reinigen. Wieder einsetzen und Blindkappe mit Schraubenschlüssel vorsichtig handfest (ohne Gewalt) verschließen. Absperrhahn wieder öffnen.
 
@@ -288,16 +328,16 @@ Säubern:
 VCarve: Wenn tiefer gefräst wird als das Material, muss die Stegdicke entsprechend erhöht werden, denn diese bezieht sich immer auf den untersten Punkt der Fräsung. Vorsicht auch bei unebenem Material.
 	\item VCarve: Starttiefe=0, außer wenn vorher mindestens so tief ausgefräst (Reihenfolge!)\\
 Für besondere Vorsicht (unebenes Material) kann Starttiefe auch negativ sein.
-	\item Erlaubte Frästiefe beachten: Ein Fräser darf meist nicht so tief eintauchen wie er lang ist, weil der Schaft etwas größer ist als die Schneiden. Die erlaubte Tiefe steht im Artikelnamen in der Preisliste oder im Datenblatt (nutzbare Schneidenlänge bzw. Freistellungslänge).
+	\item Erlaubte Frästiefe beachten: Ein Fräser darf meist nicht so tief eintauchen, wie er lang ist, weil der Schaft etwas größer ist als die Schneiden. Die erlaubte Tiefe steht im Artikelnamen in der Preisliste oder im Datenblatt (nutzbare Schneidenlänge bzw. Freistellungslänge).
 Bei Schaum u.\,Ä.\ kann ein gleich dicker Schaft auch ausreichend sein. \\
 Wird tiefer als die Schneidenlänge gefräst, ist beim Nutfräsen besonders auf die Spanabfuhr zu achten. \\
 Sollten sich Späne in der Nut sammeln, Job pausieren und mit Druckluft ausblasen.
 	\item Ist der Fräser stirnseitig schneidend? (Fräsertabelle oder Datenblatt) Wenn nein, darf er nicht bohren oder senkrecht eintauchen.\\
-(Beispiele zurzeit: Och Fräser in Edelstahl und Titan, ..., Sonderfall Entgratfräser: nur die Spitze kann nicht bohren)\\
+(Beispiele zurzeit: Och-Fräser in Edelstahl und Titan, ..., Sonderfall Entgratfräser: nur die Spitze kann nicht bohren)\\
 Diese Fräser sind oft, aber nicht immer, im VCarve extra gekennzeichnet.\\
 Dann möglichst einen anderen Fräser verwenden oder im VCarve: Schrägeintauchen/Anfahrrampe aktivieren, außerdem die Stege rampenförmig und nicht rechteckig einstellen (Eintauchrampe gilt nicht für Stege!)  \todo{prüfen, ob das wirklich ausreicht}\\
 Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verfährt.
-	\item unabhängig davon ist ein schräges Eintauchen fräserschonender (VCarve: Anfahrrampe schräg, Länge der Anfahrrampe ungefähr gleich der Eintauchtiefe wählen.)
+	\item Unabhängig davon ist ein schräges Eintauchen fräserschonender (VCarve: Anfahrrampe schräg, Länge der Anfahrrampe ungefähr gleich der Eintauchtiefe wählen.)
 	\item Bohren: wenn Fräser zum Bohren verwendet werden oder relativ tief gebohrt wird, Tieflochbohren mit 1mm Rückzugshöhe aktivieren (Bohrer wird nach der eingestellten Bearbeitungstiefe ganz (+1mm) herausgefahren, damit Späne rausfallen und neue Schmierung reinkommt)
 	\item Werkstückeinstellungen prüfen (VCarve: im rechten Fensterteil bei den Werkzeugwegen):
 \begin{itemize}
@@ -330,7 +370,7 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 \begin{itemize}
 	\item alle Spannflächen müssen sauber sein, ggf. mit Papiertuch putzen.
 	\item Werkzeughalter in die Montagevorrichtung an der Werkbank stellen.
-	\item Spannzange auswählen (Eine Spannzange mit Bezeichnung 3-2 ist für Fräser mit 2\dots 3\,mm Schaft. Ein Fräser mit  3,1\,mm Schaft darf also \emph{nicht} in eine 3-2 Spannzange! Spezialfall: Für 3,175mm = 1/8 Zoll gibt es eine spezielle Spannzange.)
+	\item Spannzange auswählen (Eine Spannzange mit Bezeichnung 3-2 ist für Fräser mit 2\dots 3\,mm Schaft. Ein Fräser mit  3,1\,mm Schaft darf also \emph{nicht} in eine 3-2-Spannzange! Spezialfall: Für 3,175mm = 1/8 Zoll gibt es eine spezielle Spannzange.)
 	\item Spannzange in Spannmutter einsetzen: \emph{Schräg ansetzen} und dann einklicken.
 	\item Fräser auf Beschädigung prüfen
 	\item Fräser einspannen, die Spannmutter fest anziehen (80 Nm). Der zylindrische Teil des Fräsers soll möglichst weit in die Spannzange eingeschoben werden, darf aber nicht innen anstoßen. Zum Festziehen Drehmomentschlüssel verwenden. Drehmomentschlüssel nicht über den Auslösepunkt (\enquote{Knack}) weiterdrehen und nach Verwendung wieder auf Minimum zurückstellen.
@@ -344,7 +384,7 @@ Den erzeugten Werkzeugweg kritisch anschauen, ob er wirklich immer schräg verf�
 	
 	Bisherigen Werkzeughalter auswerfen: Diesen festhalten, damit er dabei nicht herunterfällt. Grünen Taster an Spindel gedrückt halten, Halter entnehmen.
 	\item (Für Wartungszwecke kann man hier kurz pausieren und die Wartung durchführen)
-	\item Neuer Halter und Gegenstück an der Spindel muss sauber sein (Kegel und Planfläche)! Sonst mit Papiertuch abputzen.
+	\item Neuer Halter und Gegenstück an der Spindel müssen sauber sein (Kegel und Planfläche)! Sonst mit Papiertuch abputzen.
 	\item Neuen Halter einsetzen, dazu Taster gedrückt halten, Halter bis ganz oben einschieben, Taster loslassen.
 	\item Sicherstellen, dass am Schaltschrank die Lampe Werkzeug OK (grün) leuchtet. Sonst nochmal auswechseln.
 	\item Maschinentüre schließen und mit OK bestätigen.
@@ -362,7 +402,7 @@ von PhilippH und AlexanderS
 \subsection{Einrichten Teil 2/2}
 \begin{enumerate}
 	\item \textbf{Vor} dem Antasten muss die Werkzeuglänge gemessen werden
-	\item Nullpunkt setzen Z,X,Y, \emph{nachdem} die Werkzeuglänge gemessen wurde. Den Z-Null zu vergessen ist besonders riskant.\\
+	\item Nullpunkt setzen Z, X, Y, \emph{nachdem} die Werkzeuglänge gemessen wurde. Den Z-Null zu vergessen ist besonders riskant.\\
 Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll, muss dieser mit Punkt statt Komma eingegeben werden, sonst wird er falsch angenommen!
 \end{enumerate}
 
@@ -370,7 +410,7 @@ Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll
 \begin{enumerate}
  \item Daten laden
  \item \emph{Nach} Nullpunkt und Werkzeugvermessung: \knopf{Redraw}, Vorschau sinnvoll?
- \item Angezeigte Maße X,Y,Z kleiner als Werkstück?
+ \item Angezeigte Maße X, Y, Z kleiner als Werkstück?
  \item Position Nullpunkt passend zu Daten? Vorschau beachten
  \item Keine Spannmittel im Fräsbereich, Sicherheitsabstand!\\
        dazu am besten kritische Randpunkte von Hand anfahren und sehen, ob die Spindelmutter bzw. der Fräser bei vollem Eintauchen mit irgendwas kollidieren würde. $\rightarrow$ Spannmittel prüfen! \\
@@ -386,8 +426,8 @@ Wenn die Koordinate mit dem Button auf einen bestimmten Wert gesetzt werden soll
  \item Spindel muss vorgeheizt sein, sonst User-Button \knopf{Spindel vorheizen} betätigen.\\ 
 Beim Vorheizen muss immer ein Werkzeughalter in die Spindel eingesetzt sein. Außerdem muss dabei, damit die Spannmutter nicht herausfallen kann, entweder ein Fräser fest eingespannt oder Spannmutter und Spannzange entnommen sein.
 Während des Vorheizens müssen die Türen geschlossen bleiben.
- \item Wenn benötigt (Metall) KSS an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es den Boost-Taster. \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen wie viele Tropfen hängenbleiben) 
- \item Start drücken - Maschine fährt los.
+ \item Wenn benötigt (Metall) KSS an. Kurz warten, dass die Luftblasen weg sind. Strahlen auf die Fräserspitze richten und mittelmäßig stark einstellen. \\ Zum besseren Ansaugen gegen die ersten Luftblasen gibt es den Boost-Taster. \\ Kommt genug Nebel? (z.B. Acrylplatte in den Nebelstrahl halten und schauen, wie viele Tropfen hängen bleiben) 
+ \item Start drücken -- Maschine fährt los.
  \item Beobachten, anfangs immer einen Finger nahe bei der F4-Taste haben, ggf. den Vorschub beim ersten Eintauchen runterstellen (\knopf{F-} im Automatik-Menü)
  \item Mit Druck auf \knopf{STOP} oder F4 hält die Maschine an und geht in Pause-Status (siehe \ref{resync})
 \end{enumerate}
@@ -412,7 +452,8 @@ Es geht nur ein Werkzeug pro Datei. Neue Datei laden, Werkzeugwechsel und Länge
  
 \subsection{Wiederfortsetzen nach Pause}\label{resync}
 
-\begin{center}
+\begin{figure}[htb]
+\centering
 \begin{tikzpicture}[node distance=4.5cm,auto]
 \colorlet{dunkelrot}{red!50!black}
 \tikzstyle{zustand}=[shape=circle,draw,text width=1.5cm,text centered,thick,drop shadow,font=\itshape]; 
@@ -447,7 +488,9 @@ Es geht nur ein Werkzeug pro Datei. Neue Datei laden, Werkzeugwechsel und Länge
 \draw[pf,unwichtig,sloped] (pause) to node[sloped] {Reset} (ruhe);
 \draw[pf,unwichtig,sloped] (pauseVerschoben) to node {Reset} (ruhe);
 \end{tikzpicture}
-\end{center}
+\caption{Zustände der Fräse nach einer Unterbrechung und die Übergänge dazwischen}
+\label{fig:resync}
+\end{figure}
 
 Damit nach einer Unterbrechung wieder vom gleichen Zustand aus fortgesetzt wird, auch wenn man den Fräser zwischendurch manuell verfahren hat, erscheint nach \knopf{Start} der Resync-Dialog.
 
@@ -460,13 +503,13 @@ Die sinnvolle Reihenfolge beim Bedienen ist:
  \item Nach \knopf{Start} ist der Resync-Dialog links erschienen.
 		\item Geschwindigkeit F (Textfeld), mit der zur Z-Höhe zurückgefahren wird, sollte auf 100 stehen (Kriechgang), sonst Crashgefahr.\\ Diese Geschwindigkeit gilt nicht für X/Y!
 		\item Spindel an: \knopf{S}
-		\item Kühlung an: \knopf{M8} kann manchmal auch rot sein, Hauptsache sie ist an
+		\item Kühlung an: \knopf{M8} kann manchmal auch rot sein, Hauptsache, sie ist an
 		\item Die Position kann auch wie gewohnt per Tastatur verfahren werden.
 		\item Wenn die X/Y-Position nicht stimmt (Knopf mit roter Schrift), am besten erstmal den Fräser mit BildHoch aus dem Werkstück rausfahren, damit man nicht aus Versehen quer durchs Werkstück fährt.
 			(Vorsicht bei sehr speziellen Fräserformen wie Gewindefräser, Kugelfräser o.\,Ä.: Dabei kann es sein, dass man nicht einfach geradeaus hochfahren darf.)
 		\item Position anfahren: \knopf{X}, \knopf{Y} (Abbrechen mit Esc)
 		\item Danach Position \knopf{Z} anfahren (Abbrechen mit Esc)
-		\item Erst wenn alles auf grün: \knopf{Start}
+		\item Erst wenn alles auf Grün: \knopf{Start}
 \end{enumerate}
 
 \subsection{Auftragsende, Bezahlung}
@@ -482,13 +525,13 @@ Die sinnvolle Reihenfolge beim Bedienen ist:
 \subsection{Werkzeugwechsel während Job wird nicht unterstützt}
 Wenn ein Fehler \enquote{Werkzeugwechsel während Job wird nicht unterstützt.} kommt, dann passt die aktuell geladene Werkzeugnummer nicht zur vom Programm erwarteten Werkzeugnummer. Abhilfe: Reset und den kompletten Einrichtvorgang (Werkzeug wechseln, Länge, Z-Null) mit der korrekten Werkzeugnummer wiederholen.
 
-\subsection{Notaus löst aus}
+\subsection{Not-Aus löst aus}
 Eine Schutzabschaltung kann u.\,a. folgende Gründe haben:
 \begin{itemize}
 	\item Umrichterfehler
 	\item Kühlaggregat aus / Fehler
 	\item HSK-Einsatz nicht korrekt eingelegt (Lampe \enquote{Werkzeug OK}?)
-	\item Notaus-Knopf gedrückt
+	\item Not-Aus-Knopf gedrückt
 	\item Fehlbedienung
 \end{itemize}
 
@@ -496,7 +539,7 @@ Eine Schutzabschaltung kann u.\,a. folgende Gründe haben:
 Der Umrichter hat zwei Profile, die in unterschiedlichen Drehzahlbereichen ideal funktionieren.
 \begin{itemize}
 	\item Profil 1: 0 bis 18000 rpm, im unteren Bereich nicht volles Drehmoment möglich. 
-	\item Profil 2: 0 bis ca. 15000 rpm, darüber steigt der Umrichter aus. Volles Drehmoment bis 12000 rpm
+	\item Profil 2: 0 bis ca. 15000 rpm, darüber steigt der Umrichter aus. Volles Drehmoment bis 12000 rpm.
 \end{itemize}
 In über 90\% aller Fälle reicht Profil 1 aus, auch z.B. für 10mm Fräser ZOX Vollnut in Aluminium (getestet). Für den Fall, dass das drehmomenterhöhte Profil im Umrichter geladen und dann verwendet wurde, ist es \textbf{AUF JEDEN FALL} nach der Arbeit wieder auf Profil 1 zurückzustellen. Vor der Arbeit ist zu kontrollieren, dass im Umrichterdisplay oben rechts \enquote{1(1)} steht, da dies auf Profil 1 hinweist.
 
@@ -509,13 +552,13 @@ Bei zu großer Kraft kann die Fräse Schritte verlieren, d.h. es gibt jetzt eine
 \subsection{Fräserbruch}
 \begin{itemize}
  \item Schrittverlust ist zu befürchten $\rightarrow$ Referenzfahrt!
- \item Vorderes abgebrochenes Teil des Fräsers anschauen: optisch in Ordnung? verklebt (Alu/Kunststoff)? noch scharf?
+ \item Vorderes abgebrochenes Teil des Fräsers anschauen: Optisch in Ordnung? Verklebt (Alu/Kunststoff)? Noch scharf?
  \item Restliche Hartmetallteile aus dem Werkstück entfernen, sonst wird der nächste Fräser bei Berührung gleich wieder zerstört.
- \item Aufbauschneide? wenn ja: mehr KSS oder richtigen Fräser verwenden!
- \item Aufspannung starr genug? Blech wird gerne hochgezogen, sodass die Zustellung zu groß wird oder den Fräser einklemmt.
+ \item Aufbauschneide? Wenn ja: mehr KSS oder richtigen Fräser verwenden!
+ \item Aufspannung starr genug? Blech wird gerne hochgezogen, sodass die Zustellung zu groß wird oder das Blech den Fräser einklemmt.
  \item Ausreichend Schmierung?
- \item Zustellung verringern bei gleichem Vorschub, oder Vorschub verringern. Hat beides seine Vor- und Nachteile.
- \item Stege zu klein $\rightarrow$ Werkstück verschiebt sich und klemmt in den Fräser $\rightarrow$ Stege größer machen oder umspannen
+ \item Zustellung verringern bei gleichem Vorschub oder Vorschub verringern. Beides hat seine Vor- und Nachteile.
+ \item Stege zu klein $\rightarrow$ Werkstück verschiebt sich und klemmt den Fräser ein $\rightarrow$ Stege größer machen oder umspannen
  \item Falsche Schnittgeschwindigkeit? Im Datenblatt des Fräsers nachschauen und nachrechnen.
  \end{itemize}
 
@@ -538,16 +581,16 @@ Erst das Werkzeug einwechseln und dann den Job laden. Der Fehler erscheint, wenn
 \subsection{Fehlermeldung: Werkzeugdurchmesser mit kleiner gleich 0 ist nicht erlaubt}
 Es wurde kein Werkzeugdurchmesser oder ein ungültiger Wert eingegeben. Bitte mit Punkt statt Komma eingeben.
 
-Null ist nicht erlaubt. Verwende für Gravierstichel und ähnliche spitze Werkzeuge den gleichen Nenndurchmesser (oft der Schaftdurchmesser) so wie er auch zur Datenerstellung in VCarve/Autodesk/... verwendet wurde. Der Wert ist egal, wenn das Fräsprogramm nur \enquote{mittige} Werkzeugpfade ohne Radiuskorrektur enthält, also nur G40, aber nicht G41/G42. In diesem Fall darfst du irgendeinen Ersatzwert größer null eingeben.
+Null ist nicht erlaubt. Verwende für Gravierstichel und ähnliche spitze Werkzeuge den gleichen Nenndurchmesser (oft den Schaftdurchmesser), so wie er auch zur Datenerstellung in VCarve/Autodesk/... verwendet wurde. Der Wert ist egal, wenn das Fräsprogramm nur \enquote{mittige} Werkzeugpfade ohne Radiuskorrektur enthält, also nur G40, aber nicht G41/G42. In diesem Fall darfst du irgendeinen Ersatzwert größer null eingeben.
 
 \section{Grundlagen}
 \todo{ein kurzer Abschnitt über die nötigen Daten, und Begriffe erklären. Planfräsen, Nutfräsen, Stege,...}
 
 \subsection{Schnittdaten ermitteln}
 
-Die Lebensdauer des Fräsers und Qualität des Ergebnisses hängt stark davon ab, dass Drehzahl und Vorschub passend gewählt werden.
+Die Lebensdauer des Fräsers und die Qualität des Ergebnisses hängen stark davon ab, dass Drehzahl und Vorschub passend gewählt werden.
 
-\paragraph{Übliche Werkstoffe} Gute Startwerte für Kunststoff bis Metall liefert das von der Firma Hoffmann vertriebene Zerspanungshandbuch, welches auch online erhältlich ist. Ein Standardfräser ist dort unter Schaftfräser VHM (bzw. HSS) unbeschichtet zu finden, normales Fräsen als Nutfräsen mit Eingriffsbreite $a_e=1\cdot D$, und Eingriffstiefe $a_p=1 \cdot D$. Für kleinere Fräser (3mm und kleiner) sollte man mit der Eingriffstiefe eher auf $D/2$ runtergehen.
+\paragraph{Übliche Werkstoffe} Gute Startwerte für Kunststoff bis Metall liefert das von der Firma Hoffmann vertriebene Zerspanungshandbuch, welches auch online erhältlich ist. Ein Standardfräser ist dort unter Schaftfräser VHM (bzw. HSS) unbeschichtet zu finden, normales Fräsen als Nutfräsen mit Eingriffsbreite $a_e=1\cdot D$ und Eingriffstiefe $a_p=1 \cdot D$. Für kleinere Fräser (3mm und kleiner) sollte man mit der Eingriffstiefe eher auf $D/2$ runtergehen.
 
 \begin{enumerate}
 	\item Nachschauen: Fräserdurchmesser $D$, Schneidenzahl $z$ (1 ... 5).
